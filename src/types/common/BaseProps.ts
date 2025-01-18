@@ -1,3 +1,3 @@
-export interface BaseProps {
-	value?: string;
+export interface BaseProps<T> {
+	state: T;
 }
