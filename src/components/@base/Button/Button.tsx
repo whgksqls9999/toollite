@@ -1,4 +1,4 @@
-import { BaseProps } from '../../../types/common/BaseProps';
+import { BaseProps, BaseState } from '../../../types/common/base';
 import { memo } from 'react';
 import * as S from './Button.styled';
 
@@ -7,7 +7,7 @@ export interface ButtonProps extends BaseProps<ButtonState> {
 	Icon?: string;
 }
 
-export interface ButtonState {
+export interface ButtonState extends BaseState {
 	display_value?: string;
 	color?: string;
 	background_color?: string;

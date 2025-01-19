@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Textarea, TextareaState } from '../../@base/Textarea/Textarea';
 import { Button, ButtonState } from '../../@base';
+import * as S from './TextWorkspace.style';
 
 interface TextWorkspaceProps {
 	inputTextareaState: TextareaState;
@@ -13,7 +14,7 @@ export const TextWorkspace = memo((props: TextWorkspaceProps) => {
 
 	const [input_state, setInputState] = useState(inputTextareaState);
 	const [output_state, setOutputState] = useState(outputTextareaState);
-	const [button_state, setButtonState] = useState(buttonState);
+	const [button_state] = useState(buttonState);
 
 	const input_state_ref = useRef(input_state);
 
@@ -43,10 +44,10 @@ export const TextWorkspace = memo((props: TextWorkspaceProps) => {
 	}, [input_state]);
 
 	return (
-		<>
+		<S.Wrapper>
 			<Textarea state={input_state} onChange={onInputChange} />
 			<Button onClick={onButtonClick} state={button_state} />
 			<Textarea state={output_state} />
-		</>
+		</S.Wrapper>
 	);
 });
