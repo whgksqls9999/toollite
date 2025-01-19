@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.button<{
-	color: string;
-	background_color: string;
+	color?: string;
+	background_color?: string;
 }>`
 	width: 50px;
 	height: 30px;

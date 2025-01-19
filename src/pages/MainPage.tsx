@@ -1,25 +1,14 @@
 import { memo } from 'react';
-import { Button } from '../components';
+import { Button, TextWorkspace } from '../components';
 import { ENUM_BUTTON_TYPE, ENUM_MENU_TYPE } from '../enum/common';
+import { Textarea } from '../components/@base/Textarea';
+import { RemoveWhiteSpaceWidget } from '../components/RemoveWhiteSpacePage';
 
 export const MainPage = memo(() => {
-	const menu_type = ENUM_MENU_TYPE.MAIN;
-	const state = {
-		color: 'white',
-		background_color: 'red',
-		display_value: '하이',
-	};
-
 	return (
 		<div>
 			MainPage
-			<Button
-				onClick={() => {
-					alert('하이');
-				}}
-				state={state}
-				Icon='123'
-			/>
+			<RemoveWhiteSpaceWidget />
 		</div>
 	);
 });
