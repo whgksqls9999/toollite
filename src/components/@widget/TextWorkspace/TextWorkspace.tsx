@@ -1,7 +1,6 @@
-import { memo, useCallback, useEffect, useState } from 'react';
-import { Textarea, TextareaState } from '../@base/Textarea/Textarea';
-import { Button, ButtonState } from '../@base';
-import { useTextWorkspace } from '../../hooks/useTextWorkspace';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { Textarea, TextareaState } from '../../@base/Textarea/Textarea';
+import { Button, ButtonState } from '../../@base';
 
 interface TextWorkspaceProps {
 	inputTextareaState: TextareaState;
@@ -16,14 +15,18 @@ export const TextWorkspace = memo((props: TextWorkspaceProps) => {
 	const [output_state, setOutputState] = useState(outputTextareaState);
 	const [button_state, setButtonState] = useState(buttonState);
 
-	const { onInputChange, onButtonClick } = useTextWorkspace({
-		input_state,
-		setInputState,
-		output_state,
-		setOutputState,
-		button_state,
-		setButtonState,
-	});
+	const input_state_ref = useRef(input_state);
+
+	const onInputChange = useCallback((e: any) => {
+		setInputState({ ...input_state, display_value: e.target.value });
+	}, []);
+
+	const onButtonClick = useCallback(() => {
+		setOutputState({
+			...output_state,
+			display_value: input_state_ref.current.display_value,
+		});
+	}, []);
 
 	// 인풋이 변화했을 때, 조건에 따라 자동적으로 변환된 텍스트를 아웃풋에 반영하는 useEffect
 	useEffect(() => {
@@ -33,6 +36,11 @@ export const TextWorkspace = memo((props: TextWorkspaceProps) => {
 		// 	display_value: input_state.display_value,
 		// });
 	}, [input_state.display_value]);
+
+	// input_state가 변화할 때, ref에 최신 값 반영
+	useEffect(() => {
+		input_state_ref.current = input_state;
+	}, [input_state]);
 
 	return (
 		<>
