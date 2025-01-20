@@ -1,1 +1,1 @@
-export * from './TextWorkspace';
+export * from './TextToText';

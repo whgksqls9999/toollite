@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { TextWorkspace } from '../@widget';
+import { TextToText } from '../@widget';
 import { TextareaState } from '../@base/Textarea';
 import { ButtonState } from '../@base';
 
@@ -19,11 +19,16 @@ export const RemoveWhiteSpaceWidget = memo(() => {
 		display_value: '변환하기',
 	};
 
+	const removeWhiteSpaceAction = (param: string) => {
+		return param.replace(/\s+/g, '');
+	};
+
 	return (
-		<TextWorkspace
+		<TextToText
 			buttonState={buttonState}
 			inputTextareaState={inputTextareaState}
 			outputTextareaState={outputTextareaState}
+			action={removeWhiteSpaceAction}
 		/>
 	);
 });
