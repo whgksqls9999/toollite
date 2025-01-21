@@ -3,5 +3,5 @@ export interface BaseProps<T> {
 }
 
 export interface BaseState {
-	[key: string]: string | number | boolean | undefined;
+	[key: string]: any;
 }
