@@ -11,6 +11,9 @@ export function useTextToText(
 	setButtonState: Dispatch<SetStateAction<TextareaState>>,
 	action: (param: any) => any
 ) {
+	button_state;
+	setButtonState;
+
 	const onInputChange = useCallback((e: any) => {
 		setInputState((input_state) => ({
 			...input_state,

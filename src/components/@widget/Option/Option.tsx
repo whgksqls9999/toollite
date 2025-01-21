@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Radio, RadioProps, RadioState } from '../../@base/Radio';
+import { Radio, RadioState } from '../../@base/Radio';
 
 export interface OptionProps {
 	action: (param?: any) => any;

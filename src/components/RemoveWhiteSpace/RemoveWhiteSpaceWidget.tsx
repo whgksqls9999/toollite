@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { TextToText } from '../@widget';
 import { TextareaState } from '../@base/Textarea';
 import { ButtonState } from '../@base';
