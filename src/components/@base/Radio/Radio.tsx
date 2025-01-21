@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { BaseProps, BaseState } from '../../../types/common';
+import * as S from './Radio.style';
 
 export interface RadioProps extends BaseProps<RadioState> {
 	onChange?: (param?: any) => any;
@@ -20,7 +21,7 @@ export const Radio = memo((props: RadioProps) => {
 	}, []);
 
 	return (
-		<label>
+		<S.RadioWrapper>
 			<input
 				type='radio'
 				defaultChecked={state.is_checked}
@@ -28,6 +29,6 @@ export const Radio = memo((props: RadioProps) => {
 				name={props.name}
 			/>
 			<span>{state.display_value}</span>
-		</label>
+		</S.RadioWrapper>
 	);
 });

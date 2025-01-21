@@ -4,8 +4,6 @@ export const Wrapper = styled.button<{
 	color?: string;
 	background_color?: string;
 }>`
-	width: 50px;
-	height: 30px;
 	border-radius: 10px;
 	border-style: solid;
 	border-width: 1px;
@@ -27,4 +25,6 @@ export const Wrapper = styled.button<{
 `;
 
 export const Icon = styled.span``;
-export const Text = styled.span``;
+export const Text = styled.span`
+	white-space: nowrap;
+`;
