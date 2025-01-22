@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { Radio, RadioState } from '../../@base/Radio';
+import * as S from './Option.style';
 
 export interface OptionProps {
 	action: (param?: any) => any;
@@ -15,7 +16,7 @@ export const Option = memo((props: OptionProps) => {
 	radio_values[checked_radio].is_checked = true;
 
 	return (
-		<>
+		<S.Wrapper>
 			{radio_values.map((radio_state: RadioState) => (
 				<Radio
 					key={radio_state.idx}
@@ -24,6 +25,6 @@ export const Option = memo((props: OptionProps) => {
 					name={name}
 				/>
 			))}
-		</>
+		</S.Wrapper>
 	);
 });

@@ -3,6 +3,7 @@ import { TextToText } from '../@widget';
 import { TextareaState } from '../@base/Textarea';
 import { ButtonState } from '../@base';
 import { Option, OptionProps } from '../@widget/Option';
+import * as S from './RemoveWhiteSpaceWidget.style';
 
 export const RemoveWhiteSpaceWidget = memo(() => {
 	const inputTextareaState = getInputTextareaState();
@@ -30,7 +31,7 @@ export const RemoveWhiteSpaceWidget = memo(() => {
 	];
 
 	return (
-		<>
+		<S.Wrapper>
 			<Option {...optionProps} action={setOption} />
 			<TextToText
 				buttonState={buttonState}
@@ -38,7 +39,7 @@ export const RemoveWhiteSpaceWidget = memo(() => {
 				outputTextareaState={outputTextareaState}
 				action={textConversionActions[optionIdx]}
 			/>
-		</>
+		</S.Wrapper>
 	);
 });
 
