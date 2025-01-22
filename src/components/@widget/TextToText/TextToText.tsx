@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from 'react';
 import { Textarea, TextareaState } from '../../@base/Textarea/Textarea';
 import { Button, ButtonState } from '../../@base';
 import * as S from './TextToText.style';
-import { useTextToText } from '../../../hooks/useTextToText';
+import { useDebounce, useTextToText } from '../../../hooks';
 
 interface TextToTextProps {
 	inputTextareaState: TextareaState;
@@ -28,10 +28,11 @@ export const TextToText = memo((props: TextToTextProps) => {
 		action
 	);
 
+	const debouncedAction = useDebounce(dispatchMainAction, 200);
+
 	// 인풋이 변화했을 때, 조건에 따라 자동적으로 변환된 텍스트를 아웃풋에 반영하는 useEffect
 	useEffect(() => {
-		// @TODO - 디바운싱을 적용해 지연시간 적용
-		dispatchMainAction();
+		debouncedAction();
 	}, [input_state.display_value]);
 
 	// action option이 변하면 즉각적으로 결과를 반영한다
