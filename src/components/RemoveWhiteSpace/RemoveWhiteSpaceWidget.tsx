@@ -32,7 +32,11 @@ export const RemoveWhiteSpaceWidget = memo(() => {
 
 	return (
 		<S.Wrapper>
-			<Option {...optionProps} action={setOption} />
+			<Option
+				{...optionProps}
+				action={setOption}
+				selected_idx={optionIdx}
+			/>
 			<TextToText
 				buttonState={buttonState}
 				inputTextareaState={inputTextareaState}
@@ -71,14 +75,13 @@ function getButtonState(): ButtonState {
 }
 
 function getOptionProps() {
-	const state = {
+	const props = {
 		radio_values: [
 			{ idx: 0, display_value: '모든 공백 제거' },
 			{ idx: 1, display_value: '공백 합치기' },
 		],
 		name: 'remove_option',
-		default_value: 0,
 	} as OptionProps;
 
-	return state;
+	return props;
 }

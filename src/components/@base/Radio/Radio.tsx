@@ -1,34 +1,31 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { BaseProps, BaseState } from '../../../types/common';
 import * as S from './Radio.style';
 
-export interface RadioProps extends BaseProps<RadioState> {
+export interface RadioProps extends BaseProps<any> {
 	onChange?: (param?: any) => any;
 	name: string;
-}
-
-export interface RadioState extends BaseState {
 	idx: number;
 	display_value?: string;
-	is_checked?: boolean;
+	is_checked: boolean;
 }
 
 export const Radio = memo((props: RadioProps) => {
-	const { state } = props;
+	const { name, is_checked, idx, display_value } = props;
 
 	const onChange = useCallback(() => {
-		props.onChange?.(state.idx);
+		props.onChange?.(idx);
 	}, []);
 
 	return (
 		<S.RadioWrapper>
 			<input
 				type='radio'
-				defaultChecked={state.is_checked}
+				checked={is_checked}
 				onChange={onChange}
-				name={props.name}
+				name={name}
 			/>
-			<span>{state.display_value}</span>
+			<span>{display_value}</span>
 		</S.RadioWrapper>
 	);
 });

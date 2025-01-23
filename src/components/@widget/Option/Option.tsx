@@ -1,28 +1,27 @@
 import { memo } from 'react';
-import { Radio, RadioState } from '../../@base/Radio';
+import { Radio, RadioProps } from '../../@base/Radio';
 import * as S from './Option.style';
 
 export interface OptionProps {
 	action: (param?: any) => any;
-	radio_values: RadioState[];
-	default_value?: number;
+	radio_values: RadioProps[];
 	name: string;
+	selected_idx: number;
 }
 
 export const Option = memo((props: OptionProps) => {
-	const { default_value, name, radio_values, action } = props;
-	const checked_radio = default_value ?? 0;
-
-	radio_values[checked_radio].is_checked = true;
+	const { name, radio_values, action, selected_idx } = props;
 
 	return (
 		<S.Wrapper>
-			{radio_values.map((radio_state: RadioState) => (
+			{radio_values.map((radio_props: RadioProps) => (
 				<Radio
-					key={radio_state.idx}
-					state={radio_state}
+					key={radio_props.idx}
+					idx={radio_props.idx}
 					onChange={action}
 					name={name}
+					is_checked={selected_idx === radio_props.idx}
+					display_value={radio_props.display_value}
 				/>
 			))}
 		</S.Wrapper>

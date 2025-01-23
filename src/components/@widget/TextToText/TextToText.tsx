@@ -28,11 +28,13 @@ export const TextToText = memo((props: TextToTextProps) => {
 		action
 	);
 
-	const debouncedAction = useDebounce(dispatchMainAction, 200);
+	// const debouncedAction = useDebounce(dispatchMainAction, 200);
 
 	// 인풋이 변화했을 때, 조건에 따라 자동적으로 변환된 텍스트를 아웃풋에 반영하는 useEffect
 	useEffect(() => {
-		debouncedAction();
+		// debouncedAction();
+		// api 호출이 아니라 굳이 디바운싱 적용할 필요가 없어보임
+		dispatchMainAction();
 	}, [input_state.display_value]);
 
 	// action option이 변하면 즉각적으로 결과를 반영한다

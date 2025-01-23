@@ -1,5 +1,5 @@
 export interface BaseProps<T> {
-	state: T;
+	state?: T;
 }
 
 export interface BaseState {
