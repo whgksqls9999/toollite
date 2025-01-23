@@ -1,7 +1,1 @@
-export interface BaseProps<T> {
-	state?: T;
-}
-
-export interface BaseState {
-	[key: string]: any;
-}
+export interface BaseProps {}

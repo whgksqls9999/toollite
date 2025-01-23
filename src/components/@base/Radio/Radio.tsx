@@ -1,8 +1,8 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { BaseProps } from '../../../types/common';
 import * as S from './Radio.style';
 
-export interface RadioProps extends BaseProps<any> {
+export interface RadioProps extends BaseProps {
 	onChange?: (param?: any) => any;
 	name: string;
 	idx: number;

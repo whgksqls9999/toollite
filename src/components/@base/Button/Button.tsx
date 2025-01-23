@@ -1,8 +1,8 @@
-import { BaseProps, BaseState } from '../../../types/common/base';
+import { BaseProps } from '../../../types/common/base';
 import { memo, useCallback } from 'react';
 import * as S from './Button.styled';
 
-export interface ButtonProps extends BaseProps<any> {
+export interface ButtonProps extends BaseProps {
 	onClick: () => void;
 	Icon?: string;
 	display_value?: string;

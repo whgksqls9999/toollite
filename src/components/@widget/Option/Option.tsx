@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { Radio, RadioProps } from '../../@base/Radio';
 import * as S from './Option.style';
 

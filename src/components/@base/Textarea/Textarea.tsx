@@ -3,7 +3,7 @@ import { memo } from 'react';
 import * as S from './Textarea.style';
 import { BaseProps } from '../../../types/common/base';
 
-export interface TextareaProps extends BaseProps<any> {
+export interface TextareaProps extends BaseProps {
 	onChange?: (e: any) => void;
 	placeholder?: string;
 	disabled?: boolean;
