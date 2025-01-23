@@ -2,12 +2,9 @@ import { BaseProps, BaseState } from '../../../types/common/base';
 import { memo, useCallback } from 'react';
 import * as S from './Button.styled';
 
-export interface ButtonProps extends BaseProps<ButtonState> {
+export interface ButtonProps extends BaseProps<any> {
 	onClick: () => void;
 	Icon?: string;
-}
-
-export interface ButtonState extends BaseState {
 	display_value?: string;
 	color?: string;
 	background_color?: string;
@@ -15,8 +12,7 @@ export interface ButtonState extends BaseState {
 
 // @TODO - Icon을 포함한 버튼인 경우, Icon을 조건부로 출력할 방식 구상
 export const Button = memo((props: ButtonProps) => {
-	const { Icon, state } = props;
-	const { display_value, color, background_color } = state;
+	const { Icon, display_value, color, background_color } = props;
 
 	const onClick = useCallback(() => {
 		props.onClick?.();

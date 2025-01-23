@@ -1,14 +1,14 @@
 import { Dispatch, SetStateAction, useCallback } from 'react';
 import { TextareaState } from '../components/@base/Textarea';
-import { ButtonState } from '../components';
+import { ButtonProps } from '../components';
 
 export function useTextToText(
 	input_state: TextareaState,
 	output_state: TextareaState,
-	button_state: ButtonState,
+	button_state: ButtonProps,
 	setInputState: Dispatch<SetStateAction<TextareaState>>,
 	setOutputState: Dispatch<SetStateAction<TextareaState>>,
-	setButtonState: Dispatch<SetStateAction<TextareaState>>,
+	setButtonState: Dispatch<SetStateAction<ButtonProps>>,
 	action: (param: any) => any
 ) {
 	button_state;

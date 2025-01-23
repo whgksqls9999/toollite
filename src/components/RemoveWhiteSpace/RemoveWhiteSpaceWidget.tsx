@@ -1,14 +1,14 @@
 import { memo, useCallback, useState } from 'react';
 import { TextToText } from '../@widget';
 import { TextareaState } from '../@base/Textarea';
-import { ButtonState } from '../@base';
+import { ButtonProps } from '../@base';
 import { Option, OptionProps } from '../@widget/Option';
 import * as S from './RemoveWhiteSpaceWidget.style';
 
 export const RemoveWhiteSpaceWidget = memo(() => {
 	const inputTextareaState = getInputTextareaState();
 	const outputTextareaState = getOutputTextareaState();
-	const buttonState = getButtonState();
+	const buttonProps = getbuttonProps();
 	const optionProps = getOptionProps();
 
 	const removeWhiteSpaceAction = useCallback((param: string) => {
@@ -38,7 +38,7 @@ export const RemoveWhiteSpaceWidget = memo(() => {
 				selected_idx={optionIdx}
 			/>
 			<TextToText
-				buttonState={buttonState}
+				buttonProps={buttonProps}
 				inputTextareaState={inputTextareaState}
 				outputTextareaState={outputTextareaState}
 				action={textConversionActions[optionIdx]}
@@ -66,12 +66,12 @@ function getOutputTextareaState(): TextareaState {
 	return state;
 }
 
-function getButtonState(): ButtonState {
-	const state: ButtonState = {
+function getbuttonProps(): ButtonProps {
+	const props = {
 		display_value: '변환하기',
-	};
+	} as ButtonProps;
 
-	return state;
+	return props;
 }
 
 function getOptionProps() {

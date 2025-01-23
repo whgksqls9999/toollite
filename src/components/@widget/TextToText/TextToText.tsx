@@ -1,23 +1,23 @@
 import { memo, useEffect, useState } from 'react';
 import { Textarea, TextareaState } from '../../@base/Textarea/Textarea';
-import { Button, ButtonState } from '../../@base';
+import { Button, ButtonProps } from '../../@base';
 import * as S from './TextToText.style';
 import { useDebounce, useTextToText } from '../../../hooks';
 
 interface TextToTextProps {
 	inputTextareaState: TextareaState;
 	outputTextareaState: TextareaState;
-	buttonState: ButtonState;
+	buttonProps: ButtonProps;
 	action: (param: any) => any;
 }
 
 export const TextToText = memo((props: TextToTextProps) => {
-	const { inputTextareaState, outputTextareaState, buttonState, action } =
+	const { inputTextareaState, outputTextareaState, buttonProps, action } =
 		props;
 
 	const [input_state, setInputState] = useState(inputTextareaState);
 	const [output_state, setOutputState] = useState(outputTextareaState);
-	const [button_state, setButtonState] = useState(buttonState);
+	const [button_state, setButtonState] = useState(buttonProps);
 	const { onInputChange, dispatchMainAction } = useTextToText(
 		input_state,
 		output_state,
@@ -47,7 +47,7 @@ export const TextToText = memo((props: TextToTextProps) => {
 			<S.VerticalSection>
 				<Textarea state={input_state} onChange={onInputChange} />
 			</S.VerticalSection>
-			<Button onClick={dispatchMainAction} state={button_state} />
+			<Button {...buttonProps} onClick={dispatchMainAction} />
 			<S.VerticalSection>
 				<Textarea state={output_state} />
 			</S.VerticalSection>
