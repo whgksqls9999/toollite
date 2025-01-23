@@ -1,13 +1,13 @@
 import { memo, useCallback, useState } from 'react';
 import { TextToText } from '../@widget';
-import { TextareaState } from '../@base/Textarea';
+import { TextareaProps } from '../@base/Textarea';
 import { ButtonProps } from '../@base';
 import { Option, OptionProps } from '../@widget/Option';
 import * as S from './RemoveWhiteSpaceWidget.style';
 
 export const RemoveWhiteSpaceWidget = memo(() => {
-	const inputTextareaState = getInputTextareaState();
-	const outputTextareaState = getOutputTextareaState();
+	const inputTextareaProps = getInputTextareaProps();
+	const outputTextareaProps = getOutputTextareaProps();
 	const buttonProps = getbuttonProps();
 	const optionProps = getOptionProps();
 
@@ -39,16 +39,16 @@ export const RemoveWhiteSpaceWidget = memo(() => {
 			/>
 			<TextToText
 				buttonProps={buttonProps}
-				inputTextareaState={inputTextareaState}
-				outputTextareaState={outputTextareaState}
+				inputTextareaProps={inputTextareaProps}
+				outputTextareaProps={outputTextareaProps}
 				action={textConversionActions[optionIdx]}
 			/>
 		</S.Wrapper>
 	);
 });
 
-function getInputTextareaState(): TextareaState {
-	const state: TextareaState = {
+function getInputTextareaProps(): TextareaProps {
+	const state: TextareaProps = {
 		placeholder: '변환할 텍스트를 입력해주세요',
 		resize: false,
 	};
@@ -56,8 +56,8 @@ function getInputTextareaState(): TextareaState {
 	return state;
 }
 
-function getOutputTextareaState(): TextareaState {
-	const state: TextareaState = {
+function getOutputTextareaProps(): TextareaProps {
+	const state: TextareaProps = {
 		disabled: true,
 		readonly: true,
 		resize: false,

@@ -1,13 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { memo } from 'react';
 import * as S from './Textarea.style';
-import { BaseProps, BaseState } from '../../../types/common/base';
+import { BaseProps } from '../../../types/common/base';
 
-export interface TextareaProps extends BaseProps<TextareaState> {
+export interface TextareaProps extends BaseProps<any> {
 	onChange?: (e: any) => void;
-}
-
-export interface TextareaState extends BaseState {
 	placeholder?: string;
 	disabled?: boolean;
 	readonly?: boolean;
@@ -16,16 +13,17 @@ export interface TextareaState extends BaseState {
 }
 
 export const Textarea = memo((props: TextareaProps) => {
-	const { state, onChange } = props;
+	const { onChange, display_value, placeholder, disabled, readonly, resize } =
+		props;
 
 	return (
 		<S.Wrapper
-			value={state.display_value}
-			placeholder={state.placeholder}
+			value={display_value}
+			placeholder={placeholder}
 			onChange={onChange}
-			disabled={state.disabled}
-			readOnly={state.readonly}
-			resize={state.resize}
+			disabled={disabled}
+			readOnly={readonly}
+			resize={resize}
 		/>
 	);
 });
