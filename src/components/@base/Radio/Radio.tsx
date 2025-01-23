@@ -1,5 +1,5 @@
-import { memo, useCallback, useState } from 'react';
-import { BaseProps, BaseState } from '../../../types/common';
+import { memo, useCallback, useEffect } from 'react';
+import { BaseProps } from '../../../types/common';
 import * as S from './Radio.style';
 
 export interface RadioProps extends BaseProps<any> {
@@ -15,7 +15,7 @@ export const Radio = memo((props: RadioProps) => {
 
 	const onChange = useCallback(() => {
 		props.onChange?.(idx);
-	}, []);
+	}, [props.onChange]);
 
 	return (
 		<S.RadioWrapper>

@@ -21,9 +21,9 @@ export const RemoveWhiteSpaceWidget = memo(() => {
 
 	const [optionIdx, setOptionIdx] = useState<number>(0);
 
-	const setOption = (value: number) => {
+	const setOption = useCallback((value: number) => {
 		setOptionIdx(value);
-	};
+	}, []);
 
 	const textConversionActions = [
 		removeWhiteSpaceAction,
@@ -34,7 +34,7 @@ export const RemoveWhiteSpaceWidget = memo(() => {
 		<S.Wrapper>
 			<Option
 				{...optionProps}
-				action={setOption}
+				onChange={setOption}
 				selected_idx={optionIdx}
 			/>
 			<TextToText
