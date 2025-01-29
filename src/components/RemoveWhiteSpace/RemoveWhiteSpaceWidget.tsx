@@ -4,6 +4,7 @@ import { TextareaProps } from '../@base/Textarea';
 import { ButtonProps } from '../@base';
 import { Option, OptionProps } from '../@widget/Option';
 import * as S from './RemoveWhiteSpaceWidget.style';
+import { replaceAction } from '../../utils';
 
 export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
 	const inputTextareaProps = getInputTextareaProps();
@@ -11,13 +12,7 @@ export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
 	const buttonProps = getbuttonProps();
 	const optionProps = getOptionProps();
 
-	const removeWhiteSpaceAction = useCallback((param: string) => {
-		return param.replace(/\s+/g, '');
-	}, []);
-
-	const abstractWhiteSpaceAction = useCallback((param: string) => {
-		return param.replace(/\s+/g, ' ');
-	}, []);
+	const { removeWhiteSpaceAction, abstractWhiteSpaceAction } = getActions();
 
 	const [optionIdx, setOptionIdx] = useState<number>(0);
 
@@ -84,4 +79,16 @@ function getOptionProps() {
 	} as OptionProps;
 
 	return props;
+}
+
+function getActions() {
+	const removeWhiteSpaceAction = useCallback((input: string) => {
+		return replaceAction(input, /s+/g, '');
+	}, []);
+
+	const abstractWhiteSpaceAction = useCallback((input: string) => {
+		return replaceAction(input, /s+/g, ' ');
+	}, []);
+
+	return { removeWhiteSpaceAction, abstractWhiteSpaceAction };
 }
