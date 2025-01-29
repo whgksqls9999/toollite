@@ -12,7 +12,7 @@ export interface TextareaProps extends BaseProps {
 	resize?: boolean;
 }
 
-export const Textarea = memo((props: TextareaProps) => {
+export const Textarea = memo(function Textarea(props: TextareaProps) {
 	const { onChange, display_value, placeholder, disabled, readonly, resize } =
 		props;
 

@@ -10,7 +10,7 @@ export interface RadioProps extends BaseProps {
 	is_checked: boolean;
 }
 
-export const Radio = memo((props: RadioProps) => {
+export const Radio = memo(function Radio(props: RadioProps) {
 	const { name, is_checked, idx, display_value } = props;
 
 	const onChange = useCallback(() => {

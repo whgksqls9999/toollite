@@ -10,7 +10,7 @@ interface TextToTextProps {
 	action: (param: any) => any;
 }
 
-export const TextToText = memo((props: TextToTextProps) => {
+export const TextToText = memo(function TextToText(props: TextToTextProps) {
 	const { inputTextareaProps, outputTextareaProps, buttonProps, action } =
 		props;
 

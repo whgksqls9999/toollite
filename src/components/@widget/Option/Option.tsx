@@ -9,7 +9,7 @@ export interface OptionProps {
 	selected_idx: number;
 }
 
-export const Option = memo((props: OptionProps) => {
+export const Option = memo(function Option(props: OptionProps) {
 	const { name, radio_values, onChange, selected_idx } = props;
 
 	return (

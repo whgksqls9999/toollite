@@ -11,7 +11,7 @@ export interface ButtonProps extends BaseProps {
 }
 
 // @TODO - Icon을 포함한 버튼인 경우, Icon을 조건부로 출력할 방식 구상
-export const Button = memo((props: ButtonProps) => {
+export const Button = memo(function Button(props: ButtonProps) {
 	const { Icon, display_value, color, background_color } = props;
 
 	const onClick = useCallback(() => {

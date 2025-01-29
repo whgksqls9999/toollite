@@ -5,7 +5,7 @@ import { ButtonProps } from '../@base';
 import { Option, OptionProps } from '../@widget/Option';
 import * as S from './RemoveWhiteSpaceWidget.style';
 
-export const RemoveWhiteSpaceWidget = memo(() => {
+export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
 	const inputTextareaProps = getInputTextareaProps();
 	const outputTextareaProps = getOutputTextareaProps();
 	const buttonProps = getbuttonProps();
