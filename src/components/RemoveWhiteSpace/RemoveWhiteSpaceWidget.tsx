@@ -83,11 +83,11 @@ function getOptionProps() {
 
 function getActions() {
 	const removeWhiteSpaceAction = useCallback((input: string) => {
-		return replaceAction(input, /s+/g, '');
+		return replaceAction(input, /\s+/g, '');
 	}, []);
 
 	const abstractWhiteSpaceAction = useCallback((input: string) => {
-		return replaceAction(input, /s+/g, ' ');
+		return replaceAction(input, /\s+/g, ' ');
 	}, []);
 
 	return { removeWhiteSpaceAction, abstractWhiteSpaceAction };
