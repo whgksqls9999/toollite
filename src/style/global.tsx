@@ -18,6 +18,11 @@ export const GlobalStyles = () => (
 				width: 100vw;
 				height: 100vh;
 			}
+
+			div#root {
+				width: 100%;
+				height: 100%;
+			}
 		`}
 	/>
 );

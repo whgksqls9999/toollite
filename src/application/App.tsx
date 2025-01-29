@@ -18,11 +18,12 @@ export const App = memo(() => {
 			<ThemeProvider theme={theme}>
 				<GlobalStyles />
 				<Routes>
-					<Route path='/' element={<MainPage />} />
-					<Route
-						path='/remove_whitespace'
-						element={<RemoveWhiteSpacePage />}
-					/>
+					<Route path='/' element={<MainPage />}>
+						<Route
+							path='/remove_whitespace'
+							element={<RemoveWhiteSpacePage />}
+						/>
+					</Route>
 				</Routes>
 			</ThemeProvider>
 		</BrowserRouter>
