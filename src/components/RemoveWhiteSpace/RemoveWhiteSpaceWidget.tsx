@@ -7,7 +7,7 @@ import {
 	useState,
 } from 'react';
 import { TextToText } from '../@widget';
-import { Textarea, TextareaProps } from '../@base/Textarea';
+import { TextareaProps } from '../@base/Textarea';
 import { ButtonProps } from '../@base';
 import { Option, OptionProps } from '../@widget/Option';
 import * as S from './RemoveWhiteSpaceWidget.style';
@@ -24,9 +24,6 @@ export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
 		inputTextareaState,
 		outputTextareaState,
 		optionState,
-		setInputTextareaState,
-		setOutputTextareaState,
-		setOptionState,
 		textConversionActions,
 	} = useRemoveWhiteSpaceWidget();
 
@@ -101,12 +98,4 @@ function useRemoveWhiteSpaceWidget() {
 		setOptionState,
 		textConversionActions,
 	};
-}
-
-function getbuttonProps(): ButtonProps {
-	const props = {
-		display_value: '변환하기',
-	} as ButtonProps;
-
-	return props;
 }

@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from 'react';
-import { Button, ButtonProps, Textarea, TextareaProps } from '../../@base';
+import { ButtonProps, Textarea, TextareaProps } from '../../@base';
 import * as S from './TextToText.style';
 import { useTextToText } from '../../../hooks';
 
