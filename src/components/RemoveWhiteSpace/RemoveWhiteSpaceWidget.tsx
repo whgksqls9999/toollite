@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { TextToText } from '../@widget';
-import { TextareaProps } from '../@base/Textarea';
+import { Textarea, TextareaProps } from '../@base/Textarea';
 import { ButtonProps } from '../@base';
 import { Option, OptionProps } from '../@widget/Option';
 import * as S from './RemoveWhiteSpaceWidget.style';
@@ -73,7 +73,7 @@ function getOptionProps() {
 	const props = {
 		radio_values: [
 			{ idx: 0, display_value: '모든 공백 제거' },
-			{ idx: 1, display_value: '공백 합치기' },
+			{ idx: 1, display_value: '공백 하나로 합치기' },
 		],
 		name: 'remove_option',
 	} as OptionProps;

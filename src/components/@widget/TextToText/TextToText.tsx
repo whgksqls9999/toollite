@@ -46,7 +46,6 @@ export const TextToText = memo(function TextToText(props: TextToTextProps) {
 			<S.VerticalSection>
 				<Textarea {...input_state} onChange={onInputChange} />
 			</S.VerticalSection>
-			<Button {...button_state} onClick={dispatchMainAction} />
 			<S.VerticalSection>
 				<Textarea {...output_state} />
 			</S.VerticalSection>
