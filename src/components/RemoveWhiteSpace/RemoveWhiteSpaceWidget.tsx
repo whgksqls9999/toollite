@@ -8,7 +8,6 @@ import {
 } from 'react';
 import { TextToText } from '../@widget';
 import { TextareaProps } from '../@base/Textarea';
-import { ButtonProps } from '../@base';
 import { Option, OptionProps } from '../@widget/Option';
 import * as S from './RemoveWhiteSpaceWidget.style';
 import { replaceAction } from '../../utils';
