@@ -4,10 +4,10 @@ import * as S from './Radio.style';
 
 export interface RadioProps extends BaseProps {
 	onChange?: (param?: any) => any;
-	name: string;
-	idx: number;
+	name?: string;
+	idx?: number;
 	display_value?: string;
-	is_checked: boolean;
+	is_checked?: boolean;
 }
 
 export const Radio = memo(function Radio(props: RadioProps) {

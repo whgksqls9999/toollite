@@ -6,6 +6,8 @@ import { useTextToText } from '../../../hooks';
 interface TextToTextProps {
 	inputTextareaProps: TextareaProps;
 	outputTextareaProps: TextareaProps;
+	inputToolbar?: ButtonProps[];
+	outputToolbar?: ButtonProps[];
 	buttonProps: ButtonProps;
 	action: (param: any) => any;
 }
@@ -27,12 +29,8 @@ export const TextToText = memo(function TextToText(props: TextToTextProps) {
 		action
 	);
 
-	// const debouncedAction = useDebounce(dispatchMainAction, 200);
-
 	// 인풋이 변화했을 때, 조건에 따라 자동적으로 변환된 텍스트를 아웃풋에 반영하는 useEffect
 	useEffect(() => {
-		// debouncedAction();
-		// api 호출이 아니라 굳이 디바운싱 적용할 필요가 없어보임
 		dispatchMainAction();
 	}, [input_state.display_value]);
 

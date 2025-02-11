@@ -1,4 +1,11 @@
-import { memo, useCallback, useState } from 'react';
+import {
+	Dispatch,
+	memo,
+	SetStateAction,
+	useCallback,
+	useMemo,
+	useState,
+} from 'react';
 import { TextToText } from '../@widget';
 import { Textarea, TextareaProps } from '../@base/Textarea';
 import { ButtonProps } from '../@base';
@@ -7,81 +14,72 @@ import * as S from './RemoveWhiteSpaceWidget.style';
 import { replaceAction } from '../../utils';
 
 export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
-	const inputTextareaProps = getInputTextareaProps();
-	const outputTextareaProps = getOutputTextareaProps();
-	const buttonProps = getbuttonProps();
-	const optionProps = getOptionProps();
-
-	const { removeWhiteSpaceAction, abstractWhiteSpaceAction } = getActions();
-
 	const [optionIdx, setOptionIdx] = useState<number>(0);
 
 	const setOption = useCallback((value: number) => {
 		setOptionIdx(value);
 	}, []);
 
-	const textConversionActions = [
-		removeWhiteSpaceAction,
-		abstractWhiteSpaceAction,
-	];
+	const {
+		inputTextareaState,
+		outputTextareaState,
+		optionState,
+		setInputTextareaState,
+		setOutputTextareaState,
+		setOptionState,
+		textConversionActions,
+	} = useRemoveWhiteSpaceWidget();
 
 	return (
 		<S.Wrapper>
 			<Option
-				{...optionProps}
+				{...optionState}
 				onChange={setOption}
 				selected_idx={optionIdx}
 			/>
 			<TextToText
-				buttonProps={buttonProps}
-				inputTextareaProps={inputTextareaProps}
-				outputTextareaProps={outputTextareaProps}
+				buttonProps={{ onClick: () => {} }}
+				inputTextareaProps={inputTextareaState}
+				outputTextareaProps={outputTextareaState}
 				action={textConversionActions[optionIdx]}
 			/>
 		</S.Wrapper>
 	);
 });
 
-function getInputTextareaProps(): TextareaProps {
-	const state: TextareaProps = {
-		placeholder: '변환할 텍스트를 입력해주세요',
-		resize: false,
-	};
-
-	return state;
+interface useRemoveWhiteSpaceWidget {
+	inputTextareaState: TextareaProps;
+	outputTextareaState: TextareaProps;
+	optionState: OptionProps;
+	setInputTextareaState: Dispatch<SetStateAction<TextareaProps>>;
+	setOutputTextareaState: Dispatch<SetStateAction<TextareaProps>>;
+	setOptionState: Dispatch<SetStateAction<OptionProps>>;
+	textConversionActions: ((input: string) => string)[];
 }
 
-function getOutputTextareaProps(): TextareaProps {
-	const state: TextareaProps = {
-		disabled: true,
-		readonly: true,
-		resize: false,
-	};
+function useRemoveWhiteSpaceWidget() {
+	const [inputTextareaState, setInputTextareaState] = useState<TextareaProps>(
+		{
+			placeholder: '변환할 텍스트를 입력해주세요',
+			resize: false,
+		}
+	);
 
-	return state;
-}
+	const [outputTextareaState, setOutputTextareaState] =
+		useState<TextareaProps>({
+			disabled: true,
+			readonly: true,
+			resize: false,
+		});
 
-function getbuttonProps(): ButtonProps {
-	const props = {
-		display_value: '변환하기',
-	} as ButtonProps;
-
-	return props;
-}
-
-function getOptionProps() {
-	const props = {
+	const [optionState, setOptionState] = useState<OptionProps>({
 		radio_values: [
 			{ idx: 0, display_value: '모든 공백 제거' },
 			{ idx: 1, display_value: '공백 하나로 합치기' },
 		],
 		name: 'remove_option',
-	} as OptionProps;
+	});
 
-	return props;
-}
-
-function getActions() {
 	const removeWhiteSpaceAction = useCallback((input: string) => {
 		return replaceAction(input, /\s+/g, '');
 	}, []);
@@ -90,5 +88,25 @@ function getActions() {
 		return replaceAction(input, /\s+/g, ' ');
 	}, []);
 
-	return { removeWhiteSpaceAction, abstractWhiteSpaceAction };
+	const textConversionActions = useMemo(() => {
+		return [removeWhiteSpaceAction, abstractWhiteSpaceAction];
+	}, [removeWhiteSpaceAction, abstractWhiteSpaceAction]);
+
+	return {
+		inputTextareaState,
+		outputTextareaState,
+		optionState,
+		setInputTextareaState,
+		setOutputTextareaState,
+		setOptionState,
+		textConversionActions,
+	};
+}
+
+function getbuttonProps(): ButtonProps {
+	const props = {
+		display_value: '변환하기',
+	} as ButtonProps;
+
+	return props;
 }
