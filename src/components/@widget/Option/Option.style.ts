@@ -8,5 +8,5 @@ export const Wrapper = styled.div`
 	padding: 1rem;
 	border-radius: 1rem;
 
-	box-shadow: black 0 0 2px;
+	background-color: ${(props) => props.theme.color.white};
 `;
