@@ -24,6 +24,10 @@ export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
 		outputTextareaState,
 		optionState,
 		textConversionActions,
+		inputToolbarButtonState,
+		outputToolbarButtonState,
+		setInputTextareaState,
+		setOutputTextareaState,
 	} = useRemoveWhiteSpaceWidget();
 
 	return (
@@ -36,8 +40,12 @@ export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
 			<TextToText
 				buttonProps={{ onClick: () => {} }}
 				inputTextareaProps={inputTextareaState}
+				setInputTextareaState={setInputTextareaState}
 				outputTextareaProps={outputTextareaState}
+				setOutputTextareaState={setOutputTextareaState}
 				action={textConversionActions[optionIdx]}
+				inputToolbar={inputToolbarButtonState}
+				outputToolbar={outputToolbarButtonState}
 			/>
 		</S.Wrapper>
 	);
@@ -88,6 +96,29 @@ function useRemoveWhiteSpaceWidget() {
 		return [removeWhiteSpaceAction, abstractWhiteSpaceAction];
 	}, [removeWhiteSpaceAction, abstractWhiteSpaceAction]);
 
+	const inputToolbarButtonState = [
+		{
+			display_value: '초기화',
+			onClick: () => {
+				setInputTextareaState((input_state) => ({
+					...input_state,
+					display_value: '',
+				}));
+			},
+		},
+	];
+
+	const outputToolbarButtonState = [
+		{
+			display_value: '복사하기',
+			onClick: () => {
+				navigator.clipboard.writeText(
+					outputTextareaState.display_value ?? ''
+				);
+			},
+		},
+	];
+
 	return {
 		inputTextareaState,
 		outputTextareaState,
@@ -96,5 +127,7 @@ function useRemoveWhiteSpaceWidget() {
 		setOutputTextareaState,
 		setOptionState,
 		textConversionActions,
+		inputToolbarButtonState,
+		outputToolbarButtonState,
 	};
 }

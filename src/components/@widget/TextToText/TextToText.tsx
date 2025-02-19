@@ -1,11 +1,13 @@
-import { memo, useEffect, useState } from 'react';
-import { ButtonProps, Textarea, TextareaProps } from '../../@base';
+import { Dispatch, memo, SetStateAction, useEffect, useState } from 'react';
+import { Button, ButtonProps, Textarea, TextareaProps } from '../../@base';
 import * as S from './TextToText.style';
 import { useTextToText } from '../../../hooks';
 
 interface TextToTextProps {
 	inputTextareaProps: TextareaProps;
+	setInputTextareaState: Dispatch<SetStateAction<TextareaProps>>;
 	outputTextareaProps: TextareaProps;
+	setOutputTextareaState: Dispatch<SetStateAction<TextareaProps>>;
 	inputToolbar?: ButtonProps[];
 	outputToolbar?: ButtonProps[];
 	buttonProps: ButtonProps;
@@ -13,26 +15,28 @@ interface TextToTextProps {
 }
 
 export const TextToText = memo(function TextToText(props: TextToTextProps) {
-	const { inputTextareaProps, outputTextareaProps, buttonProps, action } =
-		props;
+	const {
+		inputTextareaProps,
+		setInputTextareaState,
+		outputTextareaProps,
+		setOutputTextareaState,
+		inputToolbar,
+		outputToolbar,
+		action,
+	} = props;
 
-	const [input_state, setInputState] = useState(inputTextareaProps);
-	const [output_state, setOutputState] = useState(outputTextareaProps);
-	const [button_state, setButtonState] = useState(buttonProps);
 	const { onInputChange, dispatchMainAction } = useTextToText(
-		input_state,
-		output_state,
-		button_state,
-		setInputState,
-		setOutputState,
-		setButtonState,
+		inputTextareaProps,
+		outputTextareaProps,
+		setInputTextareaState,
+		setOutputTextareaState,
 		action
 	);
 
 	// 인풋이 변화했을 때, 조건에 따라 자동적으로 변환된 텍스트를 아웃풋에 반영하는 useEffect
 	useEffect(() => {
 		dispatchMainAction();
-	}, [input_state.display_value]);
+	}, [inputTextareaProps.display_value]);
 
 	// action option이 변하면 즉각적으로 결과를 반영한다
 	useEffect(() => {
@@ -42,10 +46,16 @@ export const TextToText = memo(function TextToText(props: TextToTextProps) {
 	return (
 		<S.Wrapper>
 			<S.VerticalSection>
-				<Textarea {...input_state} onChange={onInputChange} />
+				<Textarea {...inputTextareaProps} onChange={onInputChange} />
+				{inputToolbar?.map((button) => {
+					return <Button {...button} key={button.display_value} />;
+				})}
 			</S.VerticalSection>
 			<S.VerticalSection>
-				<Textarea {...output_state} />
+				<Textarea {...outputTextareaProps} />
+				{outputToolbar?.map((button) => {
+					return <Button {...button} key={button.display_value} />;
+				})}
 			</S.VerticalSection>
 		</S.Wrapper>
 	);

@@ -5,23 +5,25 @@ export const Wrapper = styled.button<{
 	background_color?: string;
 }>`
 	border-radius: 10px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: ${(props) => props.background_color};
+	border: none;
 	cursor: pointer;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	color: ${(props) => props.color};
-	background-color: ${(props) => props.background_color};
+	color: ${(props) => props.color ?? props.theme.color.white};
+	background-color: ${(props) =>
+		props.background_color ?? props.theme.color.purple_primary};
 	transition: all 0.2s;
 
 	:hover {
 		color: ${(props) => props.background_color};
 		background-color: ${(props) => props.color};
 	}
+
+	padding: 0.8em;
+	font-size: 1em;
 `;
 
 export const Icon = styled.span``;

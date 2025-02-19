@@ -14,8 +14,10 @@ export const VerticalSection = styled.div`
 	height: 100%;
 
 	display: flex;
-	align-items: center;
+	align-items: start;
 	justify-content: center;
 	flex: 1;
 	flex-direction: column;
+
+	gap: 10px;
 `;

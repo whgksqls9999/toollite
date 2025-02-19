@@ -5,15 +5,10 @@ import { ButtonProps } from '../components';
 export function useTextToText(
 	input_state: TextareaProps,
 	output_state: TextareaProps,
-	button_state: ButtonProps,
 	setInputState: Dispatch<SetStateAction<TextareaProps>>,
 	setOutputState: Dispatch<SetStateAction<TextareaProps>>,
-	setButtonState: Dispatch<SetStateAction<ButtonProps>>,
 	action: (param: any) => any
 ) {
-	button_state;
-	setButtonState;
-
 	const onInputChange = useCallback((e: any) => {
 		setInputState((input_state) => ({
 			...input_state,
