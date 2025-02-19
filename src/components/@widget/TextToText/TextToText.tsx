@@ -1,4 +1,4 @@
-import { Dispatch, memo, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, memo, SetStateAction, useEffect } from 'react';
 import { Button, ButtonProps, Textarea, TextareaProps } from '../../@base';
 import * as S from './TextToText.style';
 import { useTextToText } from '../../../hooks';

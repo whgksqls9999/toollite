@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction, useCallback } from 'react';
 import { TextareaProps } from '../components/@base/Textarea';
-import { ButtonProps } from '../components';
 
 export function useTextToText(
 	input_state: TextareaProps,
