@@ -8,5 +8,5 @@ export const Wrapper = styled.div`
 	padding: 1rem;
 	border-radius: 1rem;
 
-	background-color: ${(props) => props.theme.color.white};
+	background-color: ${(props) => props.theme.color.gray};
 `;

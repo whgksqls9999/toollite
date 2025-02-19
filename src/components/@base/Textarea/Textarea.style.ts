@@ -7,7 +7,7 @@ export const Wrapper = styled.textarea<{ resize?: boolean }>`
 	height: 100%;
 
 	font-size: ${(props) => props.theme.fontSize.medium};
-	background-color: ${(props) => props.theme.color.white};
+	background-color: ${(props) => props.theme.color.gray};
 
 	border-radius: ${(props) => props.theme.borderRadius.normal};
 	padding: ${(props) => props.theme.padding.medium};

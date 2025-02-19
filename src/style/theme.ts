@@ -9,7 +9,8 @@ export const theme = {
 		large: `${1.2 * rate.fontRate * 1}rem`,
 	},
 	color: {
-		white: '#F8F8F8',
+		white: '#FFFFFF',
+		gray: '#F8F9FA',
 		purple_primary: `#C9A0DC`,
 	},
 	borderRadius: {
@@ -38,6 +39,7 @@ declare module '@emotion/react' {
 		};
 		color: {
 			white: string;
+			gray: string;
 			purple_primary: string;
 		};
 		borderRadius: {
