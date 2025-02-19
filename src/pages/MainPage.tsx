@@ -2,14 +2,17 @@ import { memo, useEffect } from 'react';
 import { HeaderComponent } from '../components/@section/header';
 import { FooterComponent } from '../components/@section/footer';
 import { ContentComponent } from '../components/@section/content/content';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 export const MainPage = memo(function MainPage() {
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	useEffect(() => {
-		navigate('remove_whitespace');
-	}, []);
+		if (location.pathname === '/') {
+			navigate('remove_whitespace');
+		}
+	}, [location]);
 
 	return (
 		<>
