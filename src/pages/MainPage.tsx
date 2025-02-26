@@ -1,8 +1,12 @@
 import { memo, useEffect } from 'react';
-import { HeaderComponent } from '../components/@section/header';
-import { FooterComponent } from '../components/@section/footer';
-import { ContentComponent } from '../components/@section/content/content';
+
 import { useLocation, useNavigate } from 'react-router';
+import {
+	HeaderComponent,
+	ContentComponent,
+	FooterComponent,
+	Container,
+} from '../components/@section';
 
 export const MainPage = memo(function MainPage() {
 	const navigate = useNavigate();
@@ -15,10 +19,10 @@ export const MainPage = memo(function MainPage() {
 	}, [location]);
 
 	return (
-		<>
+		<Container>
 			<HeaderComponent />
 			<ContentComponent />
 			<FooterComponent />
-		</>
+		</Container>
 	);
 });
