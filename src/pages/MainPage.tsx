@@ -7,6 +7,7 @@ import {
 	FooterComponent,
 	Container,
 } from '../components/@section';
+import { Analytics } from '@vercel/analytics/react';
 
 export const MainPage = memo(function MainPage() {
 	const navigate = useNavigate();
@@ -23,6 +24,7 @@ export const MainPage = memo(function MainPage() {
 			<HeaderComponent />
 			<ContentComponent />
 			<FooterComponent />
+			<Analytics />
 		</Container>
 	);
 });
