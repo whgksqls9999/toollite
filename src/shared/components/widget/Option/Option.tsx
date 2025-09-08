@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Radio, RadioProps } from '../../@base/Radio';
 import * as S from './Option.style';
+import { Radio, RadioProps } from '@shared';
 
 export interface OptionProps {
 	onChange?: (param?: any) => any;

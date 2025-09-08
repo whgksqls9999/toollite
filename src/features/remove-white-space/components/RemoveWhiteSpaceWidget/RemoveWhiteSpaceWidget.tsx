@@ -6,11 +6,14 @@ import {
 	useMemo,
 	useState,
 } from 'react';
-import { TextToText } from '../@widget';
-import { TextareaProps } from '../@base/Textarea';
-import { Option, OptionProps } from '../@widget/Option';
 import * as S from './RemoveWhiteSpaceWidget.style';
-import { replaceAction } from '../../utils';
+import {
+	Option,
+	OptionProps,
+	TextareaProps,
+	TextToText,
+	replaceAction,
+} from '@shared';
 
 export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
 	const [optionIdx, setOptionIdx] = useState<number>(0);

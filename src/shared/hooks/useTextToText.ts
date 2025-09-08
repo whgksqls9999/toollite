@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useCallback } from 'react';
-import { TextareaProps } from '../components/@base/Textarea';
+import { TextareaProps } from '@shared';
 
 export function useTextToText(
 	input_state: TextareaProps,

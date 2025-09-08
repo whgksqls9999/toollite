@@ -6,7 +6,7 @@ import {
 	ContentComponent,
 	FooterComponent,
 	Container,
-} from '../components/@section';
+} from '@shared';
 import { Analytics } from '@vercel/analytics/react';
 
 export const MainPage = memo(function MainPage() {
