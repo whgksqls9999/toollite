@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { BaseProps } from '../../../types/common';
+import { BaseProps } from '@shared';
 
 export interface LabelProps extends BaseProps {
 	onClick?: (param?: any) => any;

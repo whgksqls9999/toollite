@@ -9,7 +9,6 @@ interface TextToTextProps {
 	outputTextareaProps: TextareaProps;
 	setOutputTextareaState: Dispatch<SetStateAction<TextareaProps>>;
 	inputToolbar?: ButtonProps[];
-	outputToolbar?: ButtonProps[];
 	action: (param: any) => any;
 }
 
@@ -20,7 +19,6 @@ export const TextToText = memo(function TextToText(props: TextToTextProps) {
 		outputTextareaProps,
 		setOutputTextareaState,
 		inputToolbar,
-		outputToolbar,
 		action,
 	} = props;
 

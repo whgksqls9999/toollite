@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { BaseProps } from '../../../types/common';
+import { BaseProps } from '@shared';
 import * as S from './Radio.style';
 
 export interface RadioProps extends BaseProps {
