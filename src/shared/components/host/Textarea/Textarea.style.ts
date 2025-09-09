@@ -6,11 +6,11 @@ export const Wrapper = styled.textarea<{ resize?: boolean }>`
 	width: 100%;
 	height: 100%;
 
-	font-size: ${(props) => props.theme.fontSize.medium};
-	background-color: ${(props) => props.theme.color.gray};
+	font-size: ${(props) => props.theme.fontSize.base};
+	background-color: ${(props) => props.theme.colors.gray100};
 
-	border-radius: ${(props) => props.theme.borderRadius.normal};
-	padding: ${(props) => props.theme.padding.medium};
+	border-radius: ${(props) => props.theme.borderRadius.md};
+	padding: ${(props) => props.theme.spacing(4)};
 	border: none;
 	outline: none;
 

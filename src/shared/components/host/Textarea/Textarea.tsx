@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { memo } from 'react';
 import * as S from './Textarea.style';
-import { BaseProps } from '../../../types/common/base';
+import { BaseProps } from '@shared';
 
 export interface TextareaProps extends BaseProps {
 	onChange?: (e: any) => void;

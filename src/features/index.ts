@@ -1,1 +1,1 @@
-export * from './remove-white-space';
+export * from './transform-string';

@@ -28,7 +28,8 @@
 			"@application": ["application"],
 			"@entities": ["entities"],
 			"@features/*": ["features/*"],
-			"@pages": ["pages"]
+			"@pages": ["pages"],
+			"@style": ["style"]
 		}
 	},
 	"include": ["src"]

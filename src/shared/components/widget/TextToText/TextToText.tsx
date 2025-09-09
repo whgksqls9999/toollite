@@ -10,7 +10,6 @@ interface TextToTextProps {
 	setOutputTextareaState: Dispatch<SetStateAction<TextareaProps>>;
 	inputToolbar?: ButtonProps[];
 	outputToolbar?: ButtonProps[];
-	buttonProps: ButtonProps;
 	action: (param: any) => any;
 }
 
@@ -44,19 +43,23 @@ export const TextToText = memo(function TextToText(props: TextToTextProps) {
 	}, [action]);
 
 	return (
-		<S.Wrapper>
-			<S.VerticalSection>
-				<Textarea {...inputTextareaProps} onChange={onInputChange} />
+		<>
+			<S.Wrapper>
+				<S.VerticalSection>
+					<Textarea
+						{...inputTextareaProps}
+						onChange={onInputChange}
+					/>
+				</S.VerticalSection>
+				<S.VerticalSection>
+					<Textarea {...outputTextareaProps} />
+				</S.VerticalSection>
+			</S.Wrapper>
+			<S.ButtonSpace>
 				{inputToolbar?.map((button) => {
 					return <Button {...button} key={button.display_value} />;
 				})}
-			</S.VerticalSection>
-			<S.VerticalSection>
-				<Textarea {...outputTextareaProps} />
-				{outputToolbar?.map((button) => {
-					return <Button {...button} key={button.display_value} />;
-				})}
-			</S.VerticalSection>
-		</S.Wrapper>
+			</S.ButtonSpace>
+		</>
 	);
 });

@@ -13,6 +13,7 @@ import {
 	TextareaProps,
 	TextToText,
 	replaceAction,
+	ButtonProps,
 } from '@shared';
 
 export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
@@ -28,27 +29,30 @@ export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
 		optionState,
 		textConversionActions,
 		inputToolbarButtonState,
-		outputToolbarButtonState,
 		setInputTextareaState,
 		setOutputTextareaState,
 	} = useRemoveWhiteSpaceWidget();
 
 	return (
 		<S.Wrapper>
+			<S.Description>
+				<div>텍스트 정리 도구</div>
+				<S.DescriptionContents>
+					텍스트의 공백, 줄바꿈 등을 정리하여 깔끔하게 만들어보세요.
+				</S.DescriptionContents>
+			</S.Description>
 			<Option
 				{...optionState}
 				onChange={setOption}
 				selected_idx={optionIdx}
 			/>
 			<TextToText
-				buttonProps={{ onClick: () => {} }}
 				inputTextareaProps={inputTextareaState}
 				setInputTextareaState={setInputTextareaState}
 				outputTextareaProps={outputTextareaState}
 				setOutputTextareaState={setOutputTextareaState}
 				action={textConversionActions[optionIdx]}
 				inputToolbar={inputToolbarButtonState}
-				outputToolbar={outputToolbarButtonState}
 			/>
 		</S.Wrapper>
 	);
@@ -108,10 +112,8 @@ function useRemoveWhiteSpaceWidget() {
 					display_value: '',
 				}));
 			},
+			variant: 'primary',
 		},
-	];
-
-	const outputToolbarButtonState = [
 		{
 			display_value: '복사하기',
 			onClick: () => {
@@ -119,8 +121,9 @@ function useRemoveWhiteSpaceWidget() {
 					outputTextareaState.display_value ?? ''
 				);
 			},
+			variant: 'primary',
 		},
-	];
+	] as ButtonProps[];
 
 	return {
 		inputTextareaState,
@@ -131,6 +134,5 @@ function useRemoveWhiteSpaceWidget() {
 		setOptionState,
 		textConversionActions,
 		inputToolbarButtonState,
-		outputToolbarButtonState,
 	};
 }

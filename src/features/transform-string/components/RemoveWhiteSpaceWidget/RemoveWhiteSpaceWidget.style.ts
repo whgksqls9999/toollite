@@ -1,6 +1,27 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
+	height: 40rem;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	border: 1px solid #e0e0e0;
+	border-radius: 1rem;
+	padding: 1rem;
+`;
+
+export const Description = styled.div`
+	padding: 1rem;
+`;
+
+export const DescriptionContents = styled.p`
+	color: #777777;
+`;
+
+export const TextAreaWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -20,9 +41,4 @@ export const VerticalSection = styled.div`
 	flex-direction: column;
 
 	gap: 10px;
-`;
-
-export const ButtonSpace = styled.div`
-	display: flex;
-	gap: 0.7rem;
 `;
