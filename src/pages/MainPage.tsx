@@ -15,7 +15,7 @@ export function MainPage() {
 
 	useEffect(() => {
 		if (location.pathname === '/') {
-			navigate('remove_whitespace');
+			navigate('/text/clean');
 		}
 	}, [location]);
 
