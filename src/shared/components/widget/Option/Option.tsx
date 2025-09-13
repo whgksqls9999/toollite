@@ -1,30 +1,33 @@
-import {} from 'react';
 import * as S from './Option.style';
-import { Radio, RadioProps } from '@shared';
+import { Radio } from '@shared';
+
+export interface OptionItem {
+	value: string | number;
+	label: string;
+}
 
 export interface OptionProps {
-	onChange?: (param?: any) => any;
-	radio_values?: RadioProps[];
+	onChange?: (next: string | number) => void;
+	options?: OptionItem[];
 	name?: string;
-	selected_idx?: number;
+	value?: string | number;
 }
 
 export function Option(props: OptionProps) {
-	const { name, radio_values, onChange, selected_idx } = props;
+	const { name, options, onChange, value } = props;
 
 	return (
 		<S.Wrapper>
-			{radio_values &&
-				radio_values.map((radio_props: RadioProps) => (
-					<Radio
-						key={radio_props.idx}
-						idx={radio_props.idx}
-						onChange={onChange}
-						name={name}
-						is_checked={selected_idx === radio_props.idx}
-						display_value={radio_props.display_value}
-					/>
-				))}
+			{options?.map((opt) => (
+				<Radio
+					key={opt.value}
+					value={opt.value}
+					label={opt.label}
+					name={name}
+					checked={value === opt.value}
+					onChange={onChange}
+				/>
+			))}
 		</S.Wrapper>
 	);
 }

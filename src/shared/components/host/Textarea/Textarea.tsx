@@ -1,29 +1,16 @@
-/** @jsxImportSource @emotion/react */
-import {} from 'react';
+import { ChangeEvent, ComponentPropsWithoutRef } from 'react';
 import * as S from './Textarea.style';
 import { BaseProps } from '@shared';
 
-export interface TextareaProps extends BaseProps {
-	onChange?: (e: any) => void;
-	placeholder?: string;
-	disabled?: boolean;
-	readonly?: boolean;
-	display_value?: string;
+export interface TextareaProps
+	extends Omit<ComponentPropsWithoutRef<'textarea'>, 'onChange'>,
+		BaseProps {
 	resize?: boolean;
+	value?: string;
+	onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 export function Textarea(props: TextareaProps) {
-	const { onChange, display_value, placeholder, disabled, readonly, resize } =
-		props;
-
-	return (
-		<S.Wrapper
-			value={display_value}
-			placeholder={placeholder}
-			onChange={onChange}
-			disabled={disabled}
-			readOnly={readonly}
-			resize={resize}
-		/>
-	);
+	const { onChange, resize, ...nativeProps } = props;
+	return <S.Wrapper onChange={onChange} resize={resize} {...nativeProps} />;
 }

@@ -1,62 +1,44 @@
-import { Dispatch, SetStateAction, useEffect } from 'react';
-import { Button, ButtonProps, Textarea, TextareaProps } from '@shared';
+import { ChangeEvent } from 'react';
+import { Button, ButtonProps, Textarea } from '@shared';
 import * as S from './TextToText.style';
-import { useTextToText } from '../../../hooks';
+
+type NativeTextarea = React.ComponentPropsWithoutRef<'textarea'>;
 
 interface TextToTextProps {
-	inputTextareaProps: TextareaProps;
-	setInputTextareaState: Dispatch<SetStateAction<TextareaProps>>;
-	outputTextareaProps: TextareaProps;
-	setOutputTextareaState: Dispatch<SetStateAction<TextareaProps>>;
-	inputToolbar?: ButtonProps[];
-	action: (param: any) => any;
+	value: string;
+	onChange: (next: string) => void;
+	outputValue: string;
+	toolbar?: ButtonProps[];
+	inputProps?: Omit<NativeTextarea, 'value' | 'onChange'>;
+	outputProps?: Omit<NativeTextarea, 'value' | 'onChange'>;
 }
 
 export function TextToText(props: TextToTextProps) {
-	const {
-		inputTextareaProps,
-		setInputTextareaState,
-		outputTextareaProps,
-		setOutputTextareaState,
-		inputToolbar,
-		action,
-	} = props;
+	const { value, onChange, outputValue, toolbar, inputProps, outputProps } =
+		props;
 
-	const { onInputChange, dispatchMainAction } = useTextToText(
-		inputTextareaProps,
-		outputTextareaProps,
-		setInputTextareaState,
-		setOutputTextareaState,
-		action
-	);
-
-	// 인풋이 변화했을 때, 조건에 따라 자동적으로 변환된 텍스트를 아웃풋에 반영하는 useEffect
-	useEffect(() => {
-		dispatchMainAction();
-	}, [inputTextareaProps.display_value]);
-
-	// action option이 변하면 즉각적으로 결과를 반영한다
-	useEffect(() => {
-		dispatchMainAction();
-	}, [action]);
+	const onInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+		onChange(e.target.value);
+	};
 
 	return (
 		<>
 			<S.Wrapper>
 				<S.VerticalSection>
 					<Textarea
-						{...inputTextareaProps}
+						value={value}
 						onChange={onInputChange}
+						{...inputProps}
 					/>
 				</S.VerticalSection>
 				<S.VerticalSection>
-					<Textarea {...outputTextareaProps} />
+					<Textarea value={outputValue} readOnly {...outputProps} />
 				</S.VerticalSection>
 			</S.Wrapper>
 			<S.ButtonSpace>
-				{inputToolbar?.map((button) => {
-					return <Button {...button} key={button.display_value} />;
-				})}
+				{toolbar?.map((button) => (
+					<Button {...button} key={button.display_value} />
+				))}
 			</S.ButtonSpace>
 		</>
 	);
