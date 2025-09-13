@@ -1,9 +1,9 @@
-import { memo } from 'react';
+import {} from 'react';
 import { Outlet } from 'react-router';
 import * as S from './content.styled';
 import { Sidebar } from '../sidebar';
 
-export const ContentComponent = memo(function ContentComponent() {
+export function ContentComponent() {
 	return (
 		<S.Wrapper>
 			<S.SideMenu>
@@ -14,4 +14,4 @@ export const ContentComponent = memo(function ContentComponent() {
 			</S.MainSection>
 		</S.Wrapper>
 	);
-});
+}

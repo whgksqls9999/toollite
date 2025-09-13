@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import {} from 'react';
 import * as S from './Option.style';
 import { Radio, RadioProps } from '@shared';
 
@@ -9,7 +9,7 @@ export interface OptionProps {
 	selected_idx?: number;
 }
 
-export const Option = memo(function Option(props: OptionProps) {
+export function Option(props: OptionProps) {
 	const { name, radio_values, onChange, selected_idx } = props;
 
 	return (
@@ -27,4 +27,4 @@ export const Option = memo(function Option(props: OptionProps) {
 				))}
 		</S.Wrapper>
 	);
-});
+}

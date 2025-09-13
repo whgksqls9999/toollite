@@ -1,6 +1,6 @@
-import { memo } from 'react';
+import {} from 'react';
 import * as S from './footer.style';
 
-export const FooterComponent = memo(function FooterComponent() {
+export function FooterComponent() {
 	return <S.Wrapper></S.Wrapper>;
-});
+}

@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { BaseProps } from '@shared';
 import * as S from './Radio.style';
 
@@ -10,7 +10,7 @@ export interface RadioProps extends BaseProps {
 	is_checked?: boolean;
 }
 
-export const Radio = memo(function Radio(props: RadioProps) {
+export function Radio(props: RadioProps) {
 	const { name, is_checked, idx, display_value } = props;
 
 	const onChange = useCallback(() => {
@@ -28,4 +28,4 @@ export const Radio = memo(function Radio(props: RadioProps) {
 			<span>{display_value}</span>
 		</S.RadioWrapper>
 	);
-});
+}

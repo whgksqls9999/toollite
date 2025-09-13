@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { BaseProps } from '@shared';
 
 export interface LabelProps extends BaseProps {
@@ -6,7 +6,7 @@ export interface LabelProps extends BaseProps {
 	display_value?: string;
 }
 
-export const Label = memo(function Label(props: LabelProps) {
+export function Label(props: LabelProps) {
 	const { display_value } = props;
 
 	const onClick = useCallback(() => {
@@ -14,4 +14,4 @@ export const Label = memo(function Label(props: LabelProps) {
 	}, [props.onClick]);
 
 	return <div onClick={onClick}>{display_value}</div>;
-});
+}

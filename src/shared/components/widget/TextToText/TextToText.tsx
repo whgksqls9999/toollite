@@ -1,4 +1,4 @@
-import { Dispatch, memo, SetStateAction, useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import { Button, ButtonProps, Textarea, TextareaProps } from '@shared';
 import * as S from './TextToText.style';
 import { useTextToText } from '../../../hooks';
@@ -12,7 +12,7 @@ interface TextToTextProps {
 	action: (param: any) => any;
 }
 
-export const TextToText = memo(function TextToText(props: TextToTextProps) {
+export function TextToText(props: TextToTextProps) {
 	const {
 		inputTextareaProps,
 		setInputTextareaState,
@@ -60,4 +60,4 @@ export const TextToText = memo(function TextToText(props: TextToTextProps) {
 			</S.ButtonSpace>
 		</>
 	);
-});
+}

@@ -1,5 +1,5 @@
 import { BaseProps } from '@shared';
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import * as S from './Button.styled';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'danger';
@@ -11,7 +11,7 @@ export interface ButtonProps extends BaseProps {
 }
 
 // @TODO - Icon을 포함한 버튼인 경우, Icon을 조건부로 출력할 방식 구상
-export const Button = memo(function Button(props: ButtonProps) {
+export function Button(props: ButtonProps) {
 	const { Icon, display_value, variant } = props;
 
 	const onClick = useCallback(() => {
@@ -24,4 +24,4 @@ export const Button = memo(function Button(props: ButtonProps) {
 			<S.Text>{display_value}</S.Text>
 		</S.Button>
 	);
-});
+}

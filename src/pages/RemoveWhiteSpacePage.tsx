@@ -1,8 +1,7 @@
-import { memo } from 'react';
 import { RemoveWhiteSpaceWidget } from '@features/transform-string';
-import { ViewerUtil } from '../utils';
+import { ViewerUtil } from '@shared';
 
-export const RemoveWhiteSpacePage = memo(() => {
+export function RemoveWhiteSpacePage() {
 	ViewerUtil.floatMessage({});
 	return <RemoveWhiteSpaceWidget />;
-});
+}

@@ -1,6 +1,5 @@
 import {
 	Dispatch,
-	memo,
 	SetStateAction,
 	useCallback,
 	useMemo,
@@ -16,7 +15,7 @@ import {
 	ButtonProps,
 } from '@shared';
 
-export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
+export function RemoveWhiteSpaceWidget() {
 	const [optionIdx, setOptionIdx] = useState<number>(0);
 
 	const setOption = useCallback((value: number) => {
@@ -56,7 +55,7 @@ export const RemoveWhiteSpaceWidget = memo(function RemoveWhiteSpaceWidget() {
 			/>
 		</S.Wrapper>
 	);
-});
+}
 
 interface useRemoveWhiteSpaceWidget {
 	inputTextareaState: TextareaProps;

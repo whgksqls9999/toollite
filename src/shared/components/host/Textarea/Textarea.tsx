@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { memo } from 'react';
+import {} from 'react';
 import * as S from './Textarea.style';
 import { BaseProps } from '@shared';
 
@@ -12,7 +12,7 @@ export interface TextareaProps extends BaseProps {
 	resize?: boolean;
 }
 
-export const Textarea = memo(function Textarea(props: TextareaProps) {
+export function Textarea(props: TextareaProps) {
 	const { onChange, display_value, placeholder, disabled, readonly, resize } =
 		props;
 
@@ -26,4 +26,4 @@ export const Textarea = memo(function Textarea(props: TextareaProps) {
 			resize={resize}
 		/>
 	);
-});
+}

@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { useLocation, useNavigate } from 'react-router';
 import {
@@ -9,7 +9,7 @@ import {
 } from '@shared';
 import { Analytics } from '@vercel/analytics/react';
 
-export const MainPage = memo(function MainPage() {
+export function MainPage() {
 	const navigate = useNavigate();
 	const location = useLocation();
 
@@ -27,4 +27,4 @@ export const MainPage = memo(function MainPage() {
 			<Analytics />
 		</Container>
 	);
-});
+}
