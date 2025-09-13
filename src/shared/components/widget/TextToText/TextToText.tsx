@@ -25,6 +25,7 @@ export function TextToText(props: TextToTextProps) {
 		<>
 			<S.Wrapper>
 				<S.VerticalSection>
+					ㅍ
 					<Textarea
 						value={value}
 						onChange={onInputChange}
