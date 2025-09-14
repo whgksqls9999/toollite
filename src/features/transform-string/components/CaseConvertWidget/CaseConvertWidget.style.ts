@@ -4,7 +4,7 @@ export const Wrapper = styled.div``;
 
 export const Description = styled.div`
 	margin-bottom: ${(p) => p.theme.spacing(4)};
-	font-weight: 600;
+	font-weight: 500;
 `;
 
 export const DescriptionContents = styled.div`
@@ -39,7 +39,8 @@ export const CardHeader = styled.div`
 `;
 
 export const CardTitle = styled.div`
-	font-weight: 600;
+	/* Use medium font weight instead of bold */
+	font-weight: 500;
 `;
 
 export const Sample = styled.div`

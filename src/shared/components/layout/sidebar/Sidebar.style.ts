@@ -3,6 +3,10 @@ import styled from '@emotion/styled';
 
 export const Sidebar = styled.div`
 	padding: 16px;
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
 `;
 
 export const Group = styled.div`

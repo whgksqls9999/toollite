@@ -8,7 +8,7 @@ export interface InputWidgetProps {
 export function InputWidget({ value, onChange }: InputWidgetProps) {
 	return (
 		<div>
-			<div style={{ fontWeight: 600, marginBottom: 8 }}>입력 텍스트</div>
+			<div style={{ fontWeight: 500, marginBottom: 8 }}>입력 텍스트</div>
 			<Textarea
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
