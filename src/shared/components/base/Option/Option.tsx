@@ -11,13 +11,24 @@ export interface RadioGroupProps {
 	options?: RadioGroupItem[];
 	name?: string;
 	value?: string | number;
+	direction?: 'row' | 'column';
+	gap?: number;
+	wrap?: boolean;
 }
 
 export function RadioGroup(props: RadioGroupProps) {
-	const { name, options, onChange, value } = props;
+	const {
+		name,
+		options,
+		onChange,
+		value,
+		direction = 'column',
+		gap,
+		wrap,
+	} = props;
 
 	return (
-		<S.Wrapper>
+		<S.Wrapper direction={direction} gap={gap} wrap={wrap}>
 			{options?.map((opt) => (
 				<RadioItem
 					key={opt.value}

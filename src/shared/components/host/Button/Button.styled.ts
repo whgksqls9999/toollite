@@ -27,12 +27,20 @@ import { theme } from '@style';
 //   `};
 // `;
 
-export const Icon = styled.span``;
+export const Icon = styled.span`
+	display: inline-flex;
+	margin-right: ${theme.spacing(2)};
+`;
 export const Text = styled.span`
 	white-space: nowrap;
 `;
 
-type ButtonVariant = 'primary' | 'secondary' | 'danger';
+type ButtonVariant =
+	| 'primary'
+	| 'secondary'
+	| 'danger'
+	| 'mono'
+	| 'monoOutline';
 
 interface ButtonProps {
 	variant?: ButtonVariant;
@@ -82,6 +90,24 @@ export const Button = styled.button<ButtonProps>`
 					color: ${theme.colors.white};
 					&:hover {
 						background: #dc2626;
+					}
+				`;
+			case 'mono':
+				return css`
+					background: ${theme.colors.gray600};
+					color: ${theme.colors.white};
+					&:hover {
+						background: ${theme.colors.gray700};
+					}
+				`;
+			case 'monoOutline':
+				return css`
+					background: ${theme.colors.white};
+					color: ${theme.colors.gray700};
+					border: 1px solid ${theme.colors.gray300};
+					&:hover {
+						background: ${theme.colors.gray100};
+						border-color: ${theme.colors.gray400};
 					}
 				`;
 			default:

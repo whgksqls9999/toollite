@@ -1,13 +1,27 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
-export const RadioItemWrapper = styled.label`
+export const RadioItemWrapper = styled.label<{ checked?: boolean }>`
 	cursor: pointer;
-	width: min-content;
+	width: 100%;
 	white-space: nowrap;
-	border-radius: 5px;
-	padding: 0.3rem;
+	border-radius: ${(p) => p.theme.borderRadius.sm};
+	padding: ${(p) => p.theme.spacing(2)} ${(p) => p.theme.spacing(3)};
+	background: ${(p) => p.theme.colors.white};
 
 	display: flex;
 	align-items: center;
-	gap: 5px;
+	gap: ${(p) => p.theme.spacing(2)};
+
+	transition: background 0.15s ease;
+
+	&:hover {
+		background: ${(p) => p.theme.colors.gray100};
+	}
+
+	${(p) =>
+		p.checked &&
+		css`
+			background: ${p.theme.colors.gray100};
+		`}
 `;

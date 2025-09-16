@@ -6,6 +6,8 @@ import {
 	TextToText,
 	replaceAction,
 	ButtonProps,
+	CopyIcon,
+	ResetIcon,
 } from '@shared';
 
 export function RemoveWhiteSpaceWidget() {
@@ -34,14 +36,16 @@ export function RemoveWhiteSpaceWidget() {
 		{
 			display_value: '초기화',
 			onClick: () => setInputValue(''),
-			variant: 'primary',
+			variant: 'monoOutline',
+			Icon: <ResetIcon size={16} />,
 		},
 		{
 			display_value: '복사하기',
 			onClick: () => {
 				navigator.clipboard.writeText(outputValue);
 			},
-			variant: 'primary',
+			variant: 'mono',
+			Icon: <CopyIcon size={16} />,
 		},
 	];
 

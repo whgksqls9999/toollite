@@ -21,7 +21,7 @@ export function RadioItem(props: RadioItemProps) {
 	);
 
 	return (
-		<S.RadioItemWrapper>
+		<S.RadioItemWrapper checked={checked}>
 			<Input
 				type='radio'
 				checked={checked}
