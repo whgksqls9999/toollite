@@ -1,25 +1,25 @@
 import * as S from './Option.style';
-import { Radio } from '@shared';
+import { RadioItem } from '@shared';
 
-export interface OptionItem {
+export interface RadioGroupItem {
 	value: string | number;
 	label: string;
 }
 
-export interface OptionProps {
+export interface RadioGroupProps {
 	onChange?: (next: string | number) => void;
-	options?: OptionItem[];
+	options?: RadioGroupItem[];
 	name?: string;
 	value?: string | number;
 }
 
-export function Option(props: OptionProps) {
+export function RadioGroup(props: RadioGroupProps) {
 	const { name, options, onChange, value } = props;
 
 	return (
 		<S.Wrapper>
 			{options?.map((opt) => (
-				<Radio
+				<RadioItem
 					key={opt.value}
 					value={opt.value}
 					label={opt.label}

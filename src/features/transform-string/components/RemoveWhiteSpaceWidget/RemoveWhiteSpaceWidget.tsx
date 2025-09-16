@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import * as S from './RemoveWhiteSpaceWidget.style';
 import {
-	Option,
-	OptionProps,
+	RadioGroup,
+	RadioGroupProps,
 	TextToText,
 	replaceAction,
 	ButtonProps,
@@ -45,7 +45,7 @@ export function RemoveWhiteSpaceWidget() {
 		},
 	];
 
-	const optionProps: OptionProps = {
+	const optionProps: RadioGroupProps = {
 		name: 'remove_option',
 		options: transforms.map((t) => ({ value: t.id, label: t.label })),
 		value: selectedTransform,
@@ -60,7 +60,7 @@ export function RemoveWhiteSpaceWidget() {
 					텍스트의 공백, 줄바꿈 등을 정리하여 깔끔하게 만들어보세요.
 				</S.DescriptionContents>
 			</S.Description>
-			<Option {...optionProps} />
+			<RadioGroup {...optionProps} />
 			<TextToText
 				value={inputValue}
 				onChange={setInputValue}

@@ -10,7 +10,6 @@ export interface ButtonProps extends BaseProps {
 	variant: ButtonVariant;
 }
 
-// @TODO - Icon을 포함한 버튼인 경우, Icon을 조건부로 출력할 방식 구상
 export function Button(props: ButtonProps) {
 	const { Icon, display_value, variant } = props;
 

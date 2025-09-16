@@ -1,8 +1,8 @@
+import * as S from './RadioItem.style';
 import { ChangeEvent, useCallback } from 'react';
-import { BaseProps } from '@shared';
-import * as S from './Radio.style';
+import { Input } from '@shared';
 
-export interface RadioProps extends BaseProps {
+export interface RadioItemProps {
 	name?: string;
 	value: string | number;
 	label: string;
@@ -10,7 +10,7 @@ export interface RadioProps extends BaseProps {
 	onChange?: (next: string | number) => void;
 }
 
-export function Radio(props: RadioProps) {
+export function RadioItem(props: RadioItemProps) {
 	const { name, checked, value, label } = props;
 
 	const onChange = useCallback(
@@ -21,14 +21,14 @@ export function Radio(props: RadioProps) {
 	);
 
 	return (
-		<S.RadioWrapper>
-			<input
+		<S.RadioItemWrapper>
+			<Input
 				type='radio'
 				checked={checked}
 				onChange={onChange}
 				name={name}
 			/>
 			<span>{label}</span>
-		</S.RadioWrapper>
+		</S.RadioItemWrapper>
 	);
 }
