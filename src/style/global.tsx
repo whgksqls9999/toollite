@@ -31,14 +31,16 @@ export const GlobalStyles = () => (
 				display: flex;
 				align-items: center;
 				justify-content: center;
-
-				width: 100vw;
-				height: 100vh;
+				min-height: 100vh;
+				width: 100%;
+				overflow-y: auto;
+				/* Reserve space for scrollbar when present to avoid layout shift (Chrome/Edge) */
+				scrollbar-gutter: stable both-edges;
 			}
 
 			div#root {
 				width: 100%;
-				height: 100%;
+				min-height: 100%;
 			}
 		`}
 	/>
