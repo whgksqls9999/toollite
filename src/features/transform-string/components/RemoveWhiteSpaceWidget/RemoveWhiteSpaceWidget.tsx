@@ -4,7 +4,6 @@ import {
 	RadioGroup,
 	RadioGroupProps,
 	TextToText,
-	replaceAction,
 	ButtonProps,
 	CopyIcon,
 	ResetIcon,
@@ -19,12 +18,12 @@ export function RemoveWhiteSpaceWidget() {
 			{
 				id: 0,
 				label: '모든 공백 제거',
-				fn: (s: string) => replaceAction(s, /\s+/g, ''),
+				fn: (s: string) => s.replace(/\s+/g, ''),
 			},
 			{
 				id: 1,
 				label: '공백 하나로 합치기',
-				fn: (s: string) => replaceAction(s, /\s+/g, ' '),
+				fn: (s: string) => s.replace(/\s+/g, ' '),
 			},
 		],
 		[]
