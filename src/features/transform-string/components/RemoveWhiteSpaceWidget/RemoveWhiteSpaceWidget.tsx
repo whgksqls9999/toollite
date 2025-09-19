@@ -59,7 +59,7 @@ export function RemoveWhiteSpaceWidget() {
 	return (
 		<S.Wrapper>
 			<S.Description>
-				<div>텍스트 정리 도구</div>
+				<S.DescriptionTitle>텍스트 정리 도구</S.DescriptionTitle>
 				<S.DescriptionContents>
 					텍스트의 공백, 줄바꿈 등을 정리하여 깔끔하게 만들어보세요.
 				</S.DescriptionContents>

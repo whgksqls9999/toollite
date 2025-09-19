@@ -33,6 +33,17 @@ function toKebabCase(input: string): string {
 		.toLowerCase();
 }
 
+function toPascalCase(input: string): string {
+	const words = input.replace(/[_-]+/g, ' ').trim().split(/\s+/);
+	if (words.length === 0) return '';
+	return words
+		.map((w) => {
+			const lower = w.toLowerCase();
+			return lower.charAt(0).toUpperCase() + lower.slice(1);
+		})
+		.join('');
+}
+
 export function CaseConvertWidget() {
 	const [inputValue, setInputValue] = useState<string>('');
 
@@ -59,6 +70,11 @@ export function CaseConvertWidget() {
 				result: toCamelCase(inputValue),
 			},
 			{
+				title: '파스칼 케이스',
+				sample: 'HelloWorld',
+				result: toPascalCase(inputValue),
+			},
+			{
 				title: '스네이크 케이스',
 				sample: 'hello_world',
 				result: toSnakeCase(inputValue),
@@ -74,10 +90,12 @@ export function CaseConvertWidget() {
 
 	return (
 		<S.Wrapper>
-			<S.Description>대소문자 변환 도구</S.Description>
-			<S.DescriptionContents>
-				텍스트를 다양한 케이스 형식으로 변환해보세요.
-			</S.DescriptionContents>
+			<S.Description>
+				<S.DescriptionTitle>대소문자 변환 도구</S.DescriptionTitle>
+				<S.DescriptionContents>
+					텍스트를 다양한 케이스 형식으로 변환해보세요.
+				</S.DescriptionContents>
+			</S.Description>
 
 			<S.InputSection>
 				<InputWidget value={inputValue} onChange={setInputValue} />

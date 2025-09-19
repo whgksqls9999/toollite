@@ -1,20 +1,28 @@
 import styled from '@emotion/styled';
+import {
+	panelContainer,
+	descriptionWrapper,
+	descriptionTitle,
+	descriptionContents,
+} from '@shared';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+	${panelContainer};
+`;
 
 export const Description = styled.div`
-	margin-bottom: ${(p) => p.theme.spacing(4)};
-	font-weight: 500;
+	${descriptionWrapper};
+`;
+
+export const DescriptionTitle = styled.div`
+	${descriptionTitle};
 `;
 
 export const DescriptionContents = styled.div`
-	color: ${(p) => p.theme.colors.gray600};
-	margin-top: ${(p) => p.theme.spacing(1)};
+	${descriptionContents};
 `;
 
-export const InputSection = styled.div`
-	margin-bottom: ${(p) => p.theme.spacing(4)};
-`;
+export const InputSection = styled.div``;
 
 export const Grid = styled.div`
 	display: grid;

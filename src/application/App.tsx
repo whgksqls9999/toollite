@@ -1,6 +1,11 @@
 import {} from 'react';
 import { Route, Routes } from 'react-router';
-import { MainPage, RemoveWhiteSpacePage, CaseConvertPage } from '../pages';
+import {
+	MainPage,
+	RemoveWhiteSpacePage,
+	CaseConvertPage,
+	UnderConstructionPage,
+} from '../pages';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '../style/theme';
@@ -22,13 +27,34 @@ export function App() {
 							element={<CaseConvertPage />}
 						/>
 						{/* placeholders for upcoming tools */}
-						<Route path='/text/url' element={<div />} />
-						<Route path='/files/pdf' element={<div />} />
-						<Route path='/files/excel' element={<div />} />
-						<Route path='/files/image' element={<div />} />
-						<Route path='/misc/colors' element={<div />} />
-						<Route path='/misc/calc' element={<div />} />
-						<Route path='/misc/date' element={<div />} />
+						<Route
+							path='/text/url'
+							element={<UnderConstructionPage />}
+						/>
+						<Route
+							path='/files/pdf'
+							element={<UnderConstructionPage />}
+						/>
+						<Route
+							path='/files/excel'
+							element={<UnderConstructionPage />}
+						/>
+						<Route
+							path='/files/image'
+							element={<UnderConstructionPage />}
+						/>
+						<Route
+							path='/misc/colors'
+							element={<UnderConstructionPage />}
+						/>
+						<Route
+							path='/misc/calc'
+							element={<UnderConstructionPage />}
+						/>
+						<Route
+							path='/misc/date'
+							element={<UnderConstructionPage />}
+						/>
 					</Route>
 				</Routes>
 			</ThemeProvider>
