@@ -7,11 +7,13 @@ import {
 	ButtonProps,
 	CopyIcon,
 	ResetIcon,
+	useToastContext,
 } from '@shared';
 
 export function RemoveWhiteSpaceWidget() {
 	const [selectedTransform, setSelectedTransform] = useState<number>(0);
 	const [inputValue, setInputValue] = useState<string>('');
+	const { showToast } = useToastContext();
 
 	const transforms = useMemo(
 		() => [
@@ -31,6 +33,15 @@ export function RemoveWhiteSpaceWidget() {
 
 	const outputValue = transforms[selectedTransform].fn(inputValue);
 
+	const handleCopy = async () => {
+		try {
+			await navigator.clipboard.writeText(outputValue);
+			showToast('클립보드에 복사가 완료됐습니다!', 'success');
+		} catch (error) {
+			showToast('복사에 실패했습니다.', 'error');
+		}
+	};
+
 	const toolbar: ButtonProps[] = [
 		{
 			display_value: '초기화',
@@ -40,9 +51,7 @@ export function RemoveWhiteSpaceWidget() {
 		},
 		{
 			display_value: '복사하기',
-			onClick: () => {
-				navigator.clipboard.writeText(outputValue);
-			},
+			onClick: handleCopy,
 			variant: 'mono',
 			Icon: <CopyIcon size={16} />,
 		},

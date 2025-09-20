@@ -10,53 +10,56 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '../style/theme';
 import { GlobalStyles } from '../style';
+import { ToastProvider } from '@shared';
 
 export function App() {
 	return (
 		<BrowserRouter>
 			<ThemeProvider theme={theme}>
 				<GlobalStyles />
-				<Routes>
-					<Route path='/' element={<MainPage />}>
-						<Route
-							path='/text/clean'
-							element={<RemoveWhiteSpacePage />}
-						/>
-						<Route
-							path='/text/case'
-							element={<CaseConvertPage />}
-						/>
-						{/* placeholders for upcoming tools */}
-						<Route
-							path='/text/url'
-							element={<UnderConstructionPage />}
-						/>
-						<Route
-							path='/files/pdf'
-							element={<UnderConstructionPage />}
-						/>
-						<Route
-							path='/files/excel'
-							element={<UnderConstructionPage />}
-						/>
-						<Route
-							path='/files/image'
-							element={<UnderConstructionPage />}
-						/>
-						<Route
-							path='/misc/colors'
-							element={<UnderConstructionPage />}
-						/>
-						<Route
-							path='/misc/calc'
-							element={<UnderConstructionPage />}
-						/>
-						<Route
-							path='/misc/date'
-							element={<UnderConstructionPage />}
-						/>
-					</Route>
-				</Routes>
+				<ToastProvider>
+					<Routes>
+						<Route path='/' element={<MainPage />}>
+							<Route
+								path='/text/clean'
+								element={<RemoveWhiteSpacePage />}
+							/>
+							<Route
+								path='/text/case'
+								element={<CaseConvertPage />}
+							/>
+							{/* placeholders for upcoming tools */}
+							<Route
+								path='/text/url'
+								element={<UnderConstructionPage />}
+							/>
+							<Route
+								path='/files/pdf'
+								element={<UnderConstructionPage />}
+							/>
+							<Route
+								path='/files/excel'
+								element={<UnderConstructionPage />}
+							/>
+							<Route
+								path='/files/image'
+								element={<UnderConstructionPage />}
+							/>
+							<Route
+								path='/misc/colors'
+								element={<UnderConstructionPage />}
+							/>
+							<Route
+								path='/misc/calc'
+								element={<UnderConstructionPage />}
+							/>
+							<Route
+								path='/misc/date'
+								element={<UnderConstructionPage />}
+							/>
+						</Route>
+					</Routes>
+				</ToastProvider>
 			</ThemeProvider>
 		</BrowserRouter>
 	);
