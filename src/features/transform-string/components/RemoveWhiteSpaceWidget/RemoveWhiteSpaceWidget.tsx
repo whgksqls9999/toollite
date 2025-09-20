@@ -13,6 +13,8 @@ import {
 export function RemoveWhiteSpaceWidget() {
 	const [selectedTransform, setSelectedTransform] = useState<number>(0);
 	const [inputValue, setInputValue] = useState<string>('');
+	const [fromValue, setFromValue] = useState<string>('');
+	const [toValue, setToValue] = useState<string>('');
 	const { showToast } = useToastContext();
 
 	const transforms = useMemo(
@@ -21,14 +23,31 @@ export function RemoveWhiteSpaceWidget() {
 				id: 0,
 				label: '모든 공백 제거',
 				fn: (s: string) => s.replace(/\s+/g, ''),
+				type: 'default' as const,
 			},
 			{
 				id: 1,
 				label: '공백 하나로 합치기',
 				fn: (s: string) => s.replace(/\s+/g, ' '),
+				type: 'default' as const,
+			},
+			{
+				id: 2,
+				label: '문자열 변경',
+				fn: (s: string) => {
+					if (!fromValue) return s;
+					return s.replace(
+						new RegExp(
+							fromValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+							'g'
+						),
+						toValue
+					);
+				},
+				type: 'replace' as const,
 			},
 		],
-		[]
+		[fromValue, toValue]
 	);
 
 	const outputValue = transforms[selectedTransform].fn(inputValue);
@@ -59,7 +78,15 @@ export function RemoveWhiteSpaceWidget() {
 
 	const optionProps: RadioGroupProps = {
 		name: 'remove_option',
-		options: transforms.map((t) => ({ value: t.id, label: t.label })),
+		options: transforms.map((t) => ({
+			value: t.id,
+			label: t.label,
+			type: t.type,
+			fromValue: fromValue,
+			toValue: toValue,
+			onFromChange: setFromValue,
+			onToChange: setToValue,
+		})),
 		value: selectedTransform,
 		onChange: (v) => setSelectedTransform(Number(v)),
 	};

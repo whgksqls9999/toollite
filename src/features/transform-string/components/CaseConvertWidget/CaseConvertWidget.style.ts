@@ -47,7 +47,6 @@ export const CardHeader = styled.div`
 `;
 
 export const CardTitle = styled.div`
-	/* Use medium font weight instead of bold */
 	font-weight: 500;
 `;
 
@@ -61,7 +60,6 @@ export const ResultBox = styled.div`
 	border-radius: ${(p) => p.theme.borderRadius.sm};
 	padding: ${(p) => p.theme.spacing(3)};
 	color: ${(p) => p.theme.colors.gray800};
-	/* keep stable height and show spaces/newlines */
 	min-height: 56px;
 	white-space: pre-wrap;
 	word-break: break-word;

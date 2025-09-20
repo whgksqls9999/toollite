@@ -11,7 +11,7 @@ export const RadioItemWrapper = styled.label<{ checked?: boolean }>`
 
 	display: flex;
 	align-items: center;
-	gap: ${(p) => p.theme.spacing(2)};
+	gap: ${(p) => p.theme.spacing(3)};
 
 	transition: background 0.15s ease;
 
