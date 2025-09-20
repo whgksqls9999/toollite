@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router';
 import {
 	MainPage,
+	MainLayout,
 	RemoveWhiteSpacePage,
 	CaseConvertPage,
 	UnderConstructionPage,
@@ -20,7 +21,8 @@ export function App() {
 					<GlobalStyles />
 					<ToastProvider>
 						<Routes>
-							<Route path='/' element={<MainPage />}>
+							<Route path='/' element={<MainLayout />}>
+								<Route index element={<MainPage />} />
 								<Route
 									path='/text/clean'
 									element={<RemoveWhiteSpacePage />}

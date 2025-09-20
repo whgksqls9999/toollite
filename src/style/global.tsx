@@ -27,6 +27,18 @@ export const GlobalStyles = () => (
 				font-family: 'GmarketSansMedium';
 			}
 
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+
+			a:hover,
+			a:visited,
+			a:focus,
+			a:active {
+				text-decoration: none;
+			}
+
 			body {
 				display: flex;
 				align-items: center;
