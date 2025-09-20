@@ -11,3 +11,4 @@ export * from './ImageIcon';
 export * from './PaletteIcon';
 export * from './CalculatorIcon';
 export * from './CalendarIcon';
+export * from './LetterIcon';
