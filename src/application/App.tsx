@@ -5,6 +5,7 @@ import {
 	RemoveWhiteSpacePage,
 	CaseConvertPage,
 	UnderConstructionPage,
+	PdfToolsPage,
 } from '../pages';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
@@ -38,7 +39,7 @@ export function App() {
 								/>
 								<Route
 									path='/files/pdf'
-									element={<UnderConstructionPage />}
+									element={<PdfToolsPage />}
 								/>
 								<Route
 									path='/files/excel'
