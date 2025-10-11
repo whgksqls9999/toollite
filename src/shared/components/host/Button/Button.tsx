@@ -13,17 +13,18 @@ export interface ButtonProps extends BaseProps {
 	Icon?: ReactNode;
 	display_value?: string;
 	variant: ButtonVariant;
+	disabled?: boolean;
 }
 
 export function Button(props: ButtonProps) {
-	const { Icon, display_value, variant } = props;
+	const { Icon, display_value, variant, disabled } = props;
 
 	const onClick = useCallback(() => {
 		props.onClick?.();
 	}, [props.onClick]);
 
 	return (
-		<S.Button onClick={onClick} variant={variant}>
+		<S.Button onClick={onClick} variant={variant} disabled={disabled}>
 			{Icon ? <S.Icon>{Icon}</S.Icon> : null}
 			<S.Text>{display_value}</S.Text>
 		</S.Button>

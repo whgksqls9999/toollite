@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { Button } from '@shared';
 import * as S from './FilePreviewWidget.style';
 import {
