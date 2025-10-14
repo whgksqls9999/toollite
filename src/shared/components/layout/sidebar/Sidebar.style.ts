@@ -20,17 +20,23 @@ export const GroupTitle = styled.div`
 	margin-bottom: 8px;
 `;
 
-export const GroupItem = styled.div`
+export const GroupItem = styled.div<{ disabled?: boolean }>`
 	padding: 8px 12px;
 	font-size: 16px;
 	color: #333;
-	cursor: pointer;
+	cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 	border-radius: 6px;
 	display: flex;
 	align-items: center;
 	gap: 8px;
 
+	background-color: ${({ disabled }) =>
+		disabled ? '#f2f2f2' : 'transparent'};
+	opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
+	pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
+
 	&:hover {
-		background-color: #e0e0e0;
+		background-color: ${({ disabled }) =>
+			disabled ? '#f2f2f2' : '#e0e0e0'};
 	}
 `;

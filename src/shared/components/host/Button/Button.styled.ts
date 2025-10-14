@@ -59,6 +59,11 @@ export const Button = styled.button<ButtonProps>`
 	cursor: pointer;
 	transition: background 0.2s ease, color 0.2s ease;
 
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
 	${({ fullWidth }) =>
 		fullWidth &&
 		css`

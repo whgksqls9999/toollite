@@ -27,11 +27,10 @@ export function Sidebar() {
 						<CaseIcon /> 대소문자 변환
 					</S.GroupItem>
 				</NavLink>
-				<NavLink to='/text/url'>
-					<S.GroupItem>
-						<LinkIcon /> URL 인코딩
-					</S.GroupItem>
-				</NavLink>
+				{/* undeveloped */}
+				<S.GroupItem disabled>
+					<LinkIcon /> URL 인코딩
+				</S.GroupItem>
 			</S.Group>
 
 			<S.Group>
@@ -41,35 +40,27 @@ export function Sidebar() {
 						<PdfIcon /> PDF 도구
 					</S.GroupItem>
 				</NavLink>
-				<NavLink to='/files/excel'>
-					<S.GroupItem>
-						<ExcelIcon /> 엑셀 도구
-					</S.GroupItem>
-				</NavLink>
-				<NavLink to='/files/image'>
-					<S.GroupItem>
-						<ImageIcon /> 이미지 도구
-					</S.GroupItem>
-				</NavLink>
+				{/* undeveloped */}
+				<S.GroupItem disabled>
+					<ExcelIcon /> 엑셀 도구
+				</S.GroupItem>
+				<S.GroupItem disabled>
+					<ImageIcon /> 이미지 도구
+				</S.GroupItem>
 			</S.Group>
 
 			<S.Group>
 				<S.GroupTitle>기타 도구</S.GroupTitle>
-				<NavLink to='/misc/colors'>
-					<S.GroupItem>
-						<PaletteIcon /> 색상 도구
-					</S.GroupItem>
-				</NavLink>
-				<NavLink to='/misc/calc'>
-					<S.GroupItem>
-						<CalculatorIcon /> 계산기
-					</S.GroupItem>
-				</NavLink>
-				<NavLink to='/misc/date'>
-					<S.GroupItem>
-						<CalendarIcon /> 날짜 도구
-					</S.GroupItem>
-				</NavLink>
+				{/* undeveloped */}
+				<S.GroupItem disabled>
+					<PaletteIcon /> 색상 도구
+				</S.GroupItem>
+				<S.GroupItem disabled>
+					<CalculatorIcon /> 계산기
+				</S.GroupItem>
+				<S.GroupItem disabled>
+					<CalendarIcon /> 날짜 도구
+				</S.GroupItem>
 			</S.Group>
 		</S.Sidebar>
 	);
