@@ -4,10 +4,17 @@ import {
 	FooterComponent,
 	Container,
 } from '@shared';
+import { useCallback, useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { Helmet } from 'react-helmet-async';
 
 export function MainLayout() {
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+	const toggleSidebar = useCallback(() => {
+		setIsSidebarOpen((prev) => !prev);
+	}, []);
+
 	return (
 		<>
 			<Helmet>
@@ -41,8 +48,14 @@ export function MainLayout() {
 				/>
 			</Helmet>
 			<Container>
-				<HeaderComponent />
-				<ContentComponent />
+				<HeaderComponent
+					onToggleSidebar={toggleSidebar}
+					isSidebarOpen={isSidebarOpen}
+				/>
+				<ContentComponent
+					isSidebarOpen={isSidebarOpen}
+					onCloseSidebar={() => setIsSidebarOpen(false)}
+				/>
 				<FooterComponent />
 				<Analytics />
 			</Container>

@@ -5,13 +5,20 @@ import { Sidebar } from '../sidebar';
 
 interface ContentComponentProps {
 	children?: ReactNode;
+	isSidebarOpen?: boolean;
+	onCloseSidebar?: () => void;
 }
 
-export function ContentComponent({ children }: ContentComponentProps) {
+export function ContentComponent({
+	children,
+	isSidebarOpen = true,
+	onCloseSidebar,
+}: ContentComponentProps) {
 	return (
 		<S.Wrapper>
-			<S.SideMenu>
-				<Sidebar />
+			<S.Backdrop isOpen={isSidebarOpen} onClick={onCloseSidebar} />
+			<S.SideMenu isOpen={isSidebarOpen}>
+				<Sidebar onClose={onCloseSidebar} />
 			</S.SideMenu>
 			<S.MainSection>{children || <Outlet />}</S.MainSection>
 		</S.Wrapper>

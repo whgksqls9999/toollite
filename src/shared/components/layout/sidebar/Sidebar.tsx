@@ -12,17 +12,21 @@ import {
 	CalendarIcon,
 } from '@shared';
 
-export function Sidebar() {
+interface SidebarProps {
+	onClose?: () => void;
+}
+
+export function Sidebar({ onClose }: SidebarProps) {
 	return (
 		<S.Sidebar>
 			<S.Group>
 				<S.GroupTitle>텍스트 도구</S.GroupTitle>
-				<NavLink to='/text/clean'>
+				<NavLink to='/text/clean' onClick={onClose}>
 					<S.GroupItem>
 						<TextIcon /> 텍스트 정리
 					</S.GroupItem>
 				</NavLink>
-				<NavLink to='/text/case'>
+				<NavLink to='/text/case' onClick={onClose}>
 					<S.GroupItem>
 						<CaseIcon /> 대소문자 변환
 					</S.GroupItem>
@@ -35,7 +39,7 @@ export function Sidebar() {
 
 			<S.Group>
 				<S.GroupTitle>파일 변환</S.GroupTitle>
-				<NavLink to='/files/pdf'>
+				<NavLink to='/files/pdf' onClick={onClose}>
 					<S.GroupItem>
 						<PdfIcon /> PDF 도구
 					</S.GroupItem>

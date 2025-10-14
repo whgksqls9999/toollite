@@ -24,6 +24,26 @@ export const theme = {
 		xl: '16px',
 	},
 	spacing: (factor: number) => `${factor * 4}px`,
+	// 3-tier responsive breakpoints: mobile, tablet, desktop
+	breakpoints: {
+		mobile: 767, // <= 767px
+		tablet: 1199, // 768px ~ 1199px
+		desktop: 1200, // >= 1200px
+	},
+	media: {
+		down: {
+			mobile: '@media (max-width: 767px)',
+			tablet: '@media (max-width: 1199px)',
+		},
+		up: {
+			tablet: '@media (min-width: 768px)',
+			desktop: '@media (min-width: 1200px)',
+		},
+		between: {
+			mobileAndTablet:
+				'@media (min-width: 768px) and (max-width: 1199px)',
+		},
+	},
 	fontSize: {
 		sm: '14px',
 		base: '16px',
@@ -63,6 +83,24 @@ declare module '@emotion/react' {
 			xl: string;
 		};
 		spacing: (factor: number) => string;
+		breakpoints: {
+			mobile: number;
+			tablet: number;
+			desktop: number;
+		};
+		media: {
+			down: {
+				mobile: string;
+				tablet: string;
+			};
+			up: {
+				tablet: string;
+				desktop: string;
+			};
+			between: {
+				mobileAndTablet: string;
+			};
+		};
 		fontSize: {
 			sm: string;
 			base: string;

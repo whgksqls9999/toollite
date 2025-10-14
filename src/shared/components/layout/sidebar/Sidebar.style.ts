@@ -1,11 +1,17 @@
 // Sidebar.style.ts
 import styled from '@emotion/styled';
+import { theme } from '../../../../style/theme';
 
 export const Sidebar = styled.div`
 	padding: 16px;
 	a {
 		text-decoration: none;
 		color: inherit;
+	}
+
+	${theme.media.down.mobile} {
+		/* On mobile, make items easier to tap */
+		padding: 12px;
 	}
 `;
 
@@ -18,6 +24,9 @@ export const GroupTitle = styled.div`
 	font-size: 14px;
 	color: #999;
 	margin-bottom: 8px;
+	${theme.media.down.mobile} {
+		font-size: 13px;
+	}
 `;
 
 export const GroupItem = styled.div<{ disabled?: boolean }>`
@@ -38,5 +47,10 @@ export const GroupItem = styled.div<{ disabled?: boolean }>`
 	&:hover {
 		background-color: ${({ disabled }) =>
 			disabled ? '#f2f2f2' : '#e0e0e0'};
+	}
+
+	${theme.media.down.mobile} {
+		padding: 10px 12px;
+		font-size: 15px;
 	}
 `;
