@@ -38,7 +38,6 @@ export function RadioGroup(props: RadioGroupProps) {
 		<S.Wrapper direction={direction} gap={gap} wrap={wrap}>
 			{options?.map((opt) => {
 				const commonProps = {
-					key: opt.value,
 					value: opt.value,
 					label: opt.label,
 					name: name,
@@ -49,6 +48,7 @@ export function RadioGroup(props: RadioGroupProps) {
 				if (opt.type === 'replace') {
 					return (
 						<ReplaceRadioItem
+							key={opt.value}
 							{...commonProps}
 							fromValue={opt.fromValue || ''}
 							toValue={opt.toValue || ''}
@@ -58,7 +58,7 @@ export function RadioGroup(props: RadioGroupProps) {
 					);
 				}
 
-				return <RadioItem {...commonProps} />;
+				return <RadioItem key={opt.value} {...commonProps} />;
 			})}
 		</S.Wrapper>
 	);
