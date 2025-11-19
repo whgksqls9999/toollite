@@ -107,9 +107,8 @@ export function RemoveWhiteSpaceWidget() {
 				toolbar={toolbar}
 				inputProps={{
 					placeholder: '변환할 텍스트를 입력해주세요',
-					rows: 12,
 				}}
-				outputProps={{ readOnly: true, rows: 12 }}
+				outputProps={{ readOnly: true }}
 			/>
 		</S.Wrapper>
 	);

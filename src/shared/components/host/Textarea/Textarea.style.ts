@@ -14,5 +14,5 @@ export const Wrapper = styled.textarea<{ resize?: boolean }>`
 	border: none;
 	outline: none;
 
-	line-height: 1;
+	line-height: 1.5;
 `;
