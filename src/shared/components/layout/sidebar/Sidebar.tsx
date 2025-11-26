@@ -32,9 +32,9 @@ export function Sidebar({ onClose }: SidebarProps) {
 					</S.GroupItem>
 				</NavLink>
 				{/* undeveloped */}
-				<S.GroupItem disabled>
+				{/* <S.GroupItem disabled>
 					<LinkIcon /> URL 인코딩
-				</S.GroupItem>
+				</S.GroupItem> */}
 			</S.Group>
 
 			<S.Group>
@@ -45,17 +45,17 @@ export function Sidebar({ onClose }: SidebarProps) {
 					</S.GroupItem>
 				</NavLink>
 				{/* undeveloped */}
-				<S.GroupItem disabled>
+				{/* <S.GroupItem disabled>
 					<ExcelIcon /> 엑셀 도구
 				</S.GroupItem>
 				<S.GroupItem disabled>
 					<ImageIcon /> 이미지 도구
-				</S.GroupItem>
+				</S.GroupItem> */}
 			</S.Group>
 
-			<S.Group>
+			{/* <S.Group>
 				<S.GroupTitle>기타 도구</S.GroupTitle>
-				{/* undeveloped */}
+				undeveloped
 				<S.GroupItem disabled>
 					<PaletteIcon /> 색상 도구
 				</S.GroupItem>
@@ -65,7 +65,7 @@ export function Sidebar({ onClose }: SidebarProps) {
 				<S.GroupItem disabled>
 					<CalendarIcon /> 날짜 도구
 				</S.GroupItem>
-			</S.Group>
+			</S.Group> */}
 		</S.Sidebar>
 	);
 }
