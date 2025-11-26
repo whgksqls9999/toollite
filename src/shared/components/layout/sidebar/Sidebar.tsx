@@ -1,16 +1,10 @@
+/**
+ * @TODO 메뉴들 외부에서 주입하기
+ */
+
 import * as S from './Sidebar.style';
 import { NavLink } from 'react-router-dom';
-import {
-	TextIcon,
-	CaseIcon,
-	LinkIcon,
-	PdfIcon,
-	ExcelIcon,
-	ImageIcon,
-	PaletteIcon,
-	CalculatorIcon,
-	CalendarIcon,
-} from '@shared';
+import { TextIcon, CaseIcon, PdfIcon } from '@shared';
 
 interface SidebarProps {
 	onClose?: () => void;
