@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import * as S from './RemoveWhiteSpaceWidget.style';
+import { Description } from '@shared';
 import {
 	RadioGroup,
 	RadioGroupProps,
@@ -93,12 +94,12 @@ export function RemoveWhiteSpaceWidget() {
 
 	return (
 		<S.Wrapper>
-			<S.Description>
-				<S.DescriptionTitle>텍스트 정리 도구</S.DescriptionTitle>
-				<S.DescriptionContents>
+			<Description>
+				<Description.Title>텍스트 정리 도구</Description.Title>
+				<Description.Contents>
 					텍스트의 공백, 줄바꿈 등을 정리하여 깔끔하게 만들어보세요.
-				</S.DescriptionContents>
-			</S.Description>
+				</Description.Contents>
+			</Description>
 			<RadioGroup {...optionProps} />
 			<TextToText
 				value={inputValue}

@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { Button, Input } from '@shared';
+import { Button, Input, Description } from '@shared';
 import * as S from './FileUploadWidget.style';
 
 interface FileUploadWidgetProps {
@@ -47,13 +47,13 @@ export function FileUploadWidget({
 
 	return (
 		<S.Wrapper>
-			<S.Description>
-				<S.DescriptionTitle>PDF 병합</S.DescriptionTitle>
-				<S.DescriptionContents>
+			<Description>
+				<Description.Title>PDF 병합</Description.Title>
+				<Description.Contents>
 					여러 개의 PDF 또는 이미지(PNG/JPG)를 하나의 PDF로
 					병합합니다.
-				</S.DescriptionContents>
-			</S.Description>
+				</Description.Contents>
+			</Description>
 			<S.DropArea
 				isOver={isOver}
 				onDrop={onDrop}

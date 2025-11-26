@@ -1,26 +1,9 @@
 import styled from '@emotion/styled';
-import {
-	panelContainer,
-	descriptionWrapper,
-	descriptionTitle,
-	descriptionContents,
-} from '@shared';
+import { panelContainer } from '@shared';
 
 export const Wrapper = styled.div`
 	${panelContainer};
 	height: 40rem;
-`;
-
-export const Description = styled.div`
-	${descriptionWrapper};
-`;
-
-export const DescriptionTitle = styled.div`
-	${descriptionTitle};
-`;
-
-export const DescriptionContents = styled.p`
-	${descriptionContents};
 `;
 
 export const TextAreaWrapper = styled.div`

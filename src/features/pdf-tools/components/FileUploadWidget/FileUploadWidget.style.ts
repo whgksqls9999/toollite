@@ -7,26 +7,6 @@ export const Wrapper = styled.div`
 	gap: ${theme.spacing(4)};
 `;
 
-export const Description = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: ${theme.spacing(2)};
-`;
-
-export const DescriptionTitle = styled.h3`
-	font-size: 1.25rem;
-	font-weight: 600;
-	color: ${theme.colors.gray800};
-	margin: 0;
-`;
-
-export const DescriptionContents = styled.p`
-	font-size: 0.875rem;
-	color: ${theme.colors.gray600};
-	margin: 0;
-	line-height: 1.5;
-`;
-
 export const DropArea = styled.div<{ isOver: boolean }>`
 	border: 2px dashed
 		${({ isOver }) =>

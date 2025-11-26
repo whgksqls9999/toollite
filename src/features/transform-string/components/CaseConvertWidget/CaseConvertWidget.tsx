@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import * as S from './CaseConvertWidget.style';
+import { Description } from '@shared';
 import { InputWidget } from './InputWidget';
 import { ResultCardWidget } from './ResultCardWidget';
 import {
@@ -56,12 +57,12 @@ export function CaseConvertWidget() {
 
 	return (
 		<S.Wrapper>
-			<S.Description>
-				<S.DescriptionTitle>대소문자 변환 도구</S.DescriptionTitle>
-				<S.DescriptionContents>
+			<Description>
+				<Description.Title>대소문자 변환 도구</Description.Title>
+				<Description.Contents>
 					텍스트를 다양한 케이스 형식으로 변환해보세요.
-				</S.DescriptionContents>
-			</S.Description>
+				</Description.Contents>
+			</Description>
 
 			<S.InputSection>
 				<InputWidget value={inputValue} onChange={setInputValue} />
