@@ -3,7 +3,7 @@ import {
 	descriptionWrapper,
 	descriptionTitle,
 	descriptionContents,
-} from '@shared';
+} from '../../../styles';
 
 export const DescriptionRoot = styled.div`
 	${descriptionWrapper};
