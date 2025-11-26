@@ -1,65 +1,139 @@
-# Toolite
+## Toolite
 
-웹 클라이언트 사이드 기반 유틸 모음입니다. React, TypeScript, Vite를 사용하여 개발되었습니다.
+웹 클라이언트 사이드 기반의 **온라인 유틸리티 도구 모음**입니다.  
+React, TypeScript, Vite로 개발되었으며 텍스트 처리와 PDF 파일 도구를 중심으로 확장 가능한 구조를 가지고 있습니다.
+
+### 배포 주소
+
+-   **서비스 URL**: `https://toollite.vercel.app`
+
+---
 
 ## 🚀 주요 기능
 
-### 텍스트 정리 도구
+### 텍스트 도구 (`/text/*`)
 
--   **모든 공백 제거**: 텍스트에서 모든 공백, 탭, 줄바꿈을 제거합니다
--   **공백 하나로 합치기**: 연속된 공백을 하나의 공백으로 변환합니다
--   **실시간 변환**: 입력과 동시에 결과를 확인할 수 있습니다
--   **원클릭 복사**: 변환된 결과를 클립보드에 복사할 수 있습니다
+-   **공백 정리**
+    -   **모든 공백 제거**: 텍스트에서 공백, 탭, 줄바꿈 등을 모두 제거
+    -   **공백 하나로 합치기**: 연속된 공백을 하나의 공백으로 정규화
+    -   입력과 동시에 결과가 실시간으로 반영되고, 원클릭 복사 기능 제공
+-   **대소문자 변환**
+    -   **UPPER / lower / Pascal / camel** 등 다양한 케이스 변환 지원
+    -   입력 영역과 결과 영역을 분리한 위젯 UI (`CaseConvertWidget`)
+
+### PDF 도구 (`/files/pdf`)
+
+-   **PDF 병합**
+    -   여러 개의 PDF 파일을 업로드 후 **드래그 앤 드롭으로 순서 변경**
+    -   pdf-lib 기반으로 브라우저에서 직접 병합 처리
+-   **파일 미리보기**
+    -   pdfjs를 활용한 페이지 썸네일/미리보기
+
+### 그 외 / 예정 기능
+
+-   메인 페이지에서 텍스트 도구, 파일(PDF) 도구, 기타 도구(색상/계산기/날짜 등 예정)로 확장 가능하도록 설계
+
+---
 
 ## 🛠 기술 스택
 
--   **Frontend**: React 18.3.1, TypeScript 5.6.2
--   **Build Tool**: Vite 6.0.5
--   **Styling**: Emotion
+-   **Frontend**: React 18, TypeScript 5
+-   **Build Tool**: Vite 6
+-   **Styling**: Emotion (`@emotion/react`, `@emotion/styled`)
+-   **Routing & SEO**
+    -   **React Router v6** (`react-router`, `react-router-dom`)
+    -   **React Helmet Async** (`react-helmet-async`)로 메타 태그/SEO 관리
+-   **PDF 처리**
+    -   `pdf-lib` – PDF 병합 등 클라이언트 측 PDF 조작
+    -   `pdfjs-dist` – PDF 페이지 렌더링 및 미리보기
+-   **Analytics**
+    -   `@vercel/analytics` – 간단한 사용 통계 수집
+
+---
 
 ## 📁 프로젝트 구조
 
-```
+```bash
 src/
-├── application/          # 애플리케이션 진입점
-│   └── App.tsx          # 메인 앱 컴포넌트
-├── features/            # 기능별 모듈
-│   └── transform-string/ # 텍스트 변환 기능
-│       └── components/
-│           └── RemoveWhiteSpaceWidget/ # 공백 제거 위젯
-├── pages/               # 페이지 컴포넌트
-│   ├── MainPage.tsx     # 메인 페이지
-│   └── RemoveWhiteSpacePage.tsx # 공백 제거 페이지
-├── shared/              # 공통 컴포넌트 및 유틸리티
-│   ├── components/      # 재사용 가능한 컴포넌트
-│   │   ├── host/        # 기본 UI 컴포넌트 (Button, Textarea 등)
-│   │   ├── layout/      # 레이아웃 컴포넌트 (Header, Sidebar, Footer)
-│   │   └── widget/      # 위젯 컴포넌트 (Option, TextToText)
-│   ├── consts/          # 상수 정의
-│   ├── hooks/           # 커스텀 훅
-│   └── utils/           # 유틸리티 함수
-├── style/               # 스타일 관련
-│   ├── global.tsx       # 전역 스타일
-│   └── theme.ts         # 테마 설정
-└── utils/               # 공통 유틸리티
+├── application/              # 애플리케이션 진입점
+│   └── App.tsx               # 메인 App 컴포넌트
+├── main.tsx                  # React 앱 부트스트랩
+├── pages/                    # 라우팅과 연결된 페이지
+│   ├── MainLayout.tsx        # 공통 레이아웃 (Header/Sidebar/Content/Footer)
+│   ├── MainPage.tsx          # 메인 랜딩 페이지
+│   ├── RemoveWhiteSpacePage.tsx
+│   ├── CaseConvertPage.tsx
+│   └── PdfToolsPage.tsx
+├── features/                 # 기능별 도메인 모듈
+│   ├── transform-string/     # 텍스트 변환 (공백 제거, 케이스 변환 등)
+│   │   ├── components/
+│   │   │   ├── RemoveWhiteSpaceWidget/
+│   │   │   └── CaseConvertWidget/
+│   │   └── lib/              # 문자열 변환 유틸 (case, 공통 로직 등)
+│   └── pdf-tools/            # PDF 도구 (병합, 미리보기 등)
+│       ├── components/
+│       │   ├── FileUploadWidget/
+│       │   ├── FilePreviewWidget/
+│       │   └── PdfMergeWidget/
+│       ├── hooks/            # 파일 리스트/드래그 정렬/미리보기 훅
+│       └── lib/              # PDF 병합, MIME 검사, 썸네일 생성 등
+├── shared/                   # 전역에서 재사용되는 레이어
+│   ├── components/
+│   │   ├── host/             # Button, Input, Textarea, Icon 등 기본 UI
+│   │   ├── base/             # Option, RadioItem, IconButton 등 조합형 컴포넌트
+│   │   ├── layout/           # Header, Sidebar, Content, Footer, Container
+│   │   └── widget/           # TextToText, InputToInput, Toast 등 위젯
+│   ├── consts/               # 공통 enum, 타입 등
+│   ├── hooks/                # useDebounce, useToast 등 공통 훅
+│   ├── lib/                  # logger, viewer 유틸 등
+│   └── styles/               # 스타일 유틸, 믹스인
+├── style/                    # 전역 스타일 레이어
+│   ├── global.tsx            # GlobalStyle
+│   └── theme.ts              # 테마, 컬러, 타이포그래피
+└── asset/                    # 폰트 등 정적 리소스
 ```
 
-## 🎨 아키텍처 특징
+Vite 경로 별칭을 활용해 다음과 같이 import를 단순화
 
-### Feature-Sliced Design (FSD)
+-   **`@shared`**: `src/shared`
+-   **`@features`**: `src/features`
+-   **`@pages`**: `src/pages`
+-   **`@style`**: `src/style`
 
--   **Features**: 독립적인 기능 모듈
--   **Shared**: 재사용 가능한 공통 컴포넌트
--   **Pages**: 라우팅과 연결된 페이지 컴포넌트
--   **Application**: 앱의 진입점과 전역 설정
+---
 
-### 컴포넌트 설계
+## 🎨 아키텍처 & 컴포넌트 설계
 
--   **Host Components**: 기본 UI 컴포넌트 (Button, Textarea, Radio 등)
--   **Layout Components**: 페이지 레이아웃 구성 요소
--   **Widget Components**: 복합 기능을 가진 위젯
+### Feature-Sliced Design (FSD) 스타일
 
-## 🚀 시작하기
+-   **Features**: `transform-string`, `pdf-tools`처럼 **도메인/기능 단위**로 모듈화
+-   **Shared**: Design System 느낌의 공통 컴포넌트, 훅, 유틸을 모아 재사용성 극대화
+-   **Pages**: 실제 URL 라우트와 1:1로 매칭되는 페이지 컴포넌트
+-   **Application**: 전역 레이아웃, Helmet, Analytics 등 앱 레벨 설정
+
+### 컴포넌트 레이어
+
+-   **Host Components**: `Button`, `Input`, `Textarea`, `Icon` 등 실제 HTML 요소와 대응되는 가장 낮은 레벨의 단위 컴포넌트
+-   **Base Components**: `Option`, `RadioItem`, `IconButton` 등 여러 Host 컴포넌트의 조합 및 Host 컴포넌트에 특화된 역할을 부여한 컴포넌트
+-   **Layout Components**: `Header`, `Sidebar`, `Content`, `Footer`, `Container` 등 페이지 뼈대
+-   **Widget Components**: `TextToText`, `InputToInput`, `RemoveWhiteSpaceWidget`, `PdfMergeWidget` 처럼 실제 “기능” 단위의 복합 컴포넌트
+
+---
+
+## 📝 사용법 (사용자 입장)
+
+1. **메인 페이지 접속**
+    - `https://toollite.vercel.app` 접속 시 메인 랜딩 페이지(`MainPage`)로 이동합니다.
+2. **도구 선택**
+    - 메인 카드 또는 사이드바에서 **텍스트 도구**(`/text/*`), **파일(PDF) 도구**(`/files/pdf`) 등을 선택합니다.
+3. **입력 & 옵션 선택**
+    - 제공되는 입력창에 텍스트 또는 파일을 넣고, 공백 제거/케이스 변환/파일 병합 등 원하는 옵션을 선택합니다.
+4. **결과 확인 및 복사/다운로드**
+    - 실시간으로 변환 결과를 확인하고, 버튼 한 번으로 **복사**하거나 **PDF 다운로드**할 수 있도록 구성됩니다.
+
+---
+
+## 🔧 개발 환경
 
 ### 설치
 
@@ -79,32 +153,4 @@ npm run dev
 npm run build
 ```
 
-### 미리보기
-
-```bash
-npm run preview
-```
-
-## 📝 사용법
-
-1. 웹사이트에 접속하면 자동으로 텍스트 정리 도구 페이지로 이동합니다
-2. 변환할 텍스트를 입력창에 입력합니다
-3. 원하는 변환 옵션을 선택합니다:
-    - **모든 공백 제거**: 모든 공백을 완전히 제거
-    - **공백 하나로 합치기**: 연속된 공백을 하나로 통합
-4. 실시간으로 변환된 결과를 확인할 수 있습니다
-5. **복사하기** 버튼을 클릭하여 결과를 클립보드에 복사할 수 있습니다
-6. **초기화** 버튼으로 입력창을 비울 수 있습니다
-
-## 🔧 개발 환경 설정
-
-### TypeScript 설정
-
--   `tsconfig.json`: 메인 TypeScript 설정
--   `tsconfig.app.json`: 앱용 TypeScript 설정
--   `tsconfig.node.json`: Node.js용 TypeScript 설정
-
-### Vite 설정
-
--   경로 별칭 설정으로 깔끔한 import 구문 사용
--   `@shared`, `@features`, `@pages` 등으로 모듈 경로 단축
+---
