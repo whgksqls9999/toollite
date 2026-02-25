@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { Helmet } from 'react-helmet-async';
 import { theme } from '@style';
 import { TextIcon, PdfIcon, PaletteIcon } from '@shared';
 
@@ -114,6 +115,17 @@ const ToolDescription = styled.p`
 export function MainPage() {
 	return (
 		<Wrapper>
+			<Helmet>
+				<title>Toollite - 무료 온라인 도구 모음</title>
+				<meta
+					name="description"
+					content="텍스트 정리, 대소문자 변환, JSON 포맷터, PDF 병합 등 다양한 무료 온라인 도구. 설치 없이 브라우저에서 바로 사용하세요."
+				/>
+				<meta
+					name="keywords"
+					content="Toollite, 온라인 도구, 텍스트 정리, JSON 포맷터, PDF 도구, 무료 유틸리티, 개발자 도구"
+				/>
+			</Helmet>
 			{/* Hero Section */}
 			<HeroSection>
 				<LogoContainer>

@@ -7,6 +7,8 @@ import {
 	JsonFormatterPage,
 	UnderConstructionPage,
 	PdfToolsPage,
+	PrivacyPage,
+	AboutPage,
 } from '../pages';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
@@ -66,6 +68,8 @@ export function App() {
 									path='/misc/date'
 									element={<UnderConstructionPage />}
 								/>
+								<Route path='/privacy' element={<PrivacyPage />} />
+								<Route path='/about' element={<AboutPage />} />
 							</Route>
 						</Routes>
 					</ToastProvider>

@@ -5,3 +5,5 @@ export * from './CaseConvertPage';
 export * from './JsonFormatterPage';
 export * from './UnderConstructionPage';
 export * from './PdfToolsPage';
+export * from './PrivacyPage';
+export * from './AboutPage';
