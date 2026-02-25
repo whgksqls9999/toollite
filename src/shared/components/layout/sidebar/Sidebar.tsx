@@ -4,7 +4,7 @@
 
 import * as S from './Sidebar.style';
 import { NavLink } from 'react-router-dom';
-import { TextIcon, CaseIcon, PdfIcon } from '@shared';
+import { TextIcon, CaseIcon, PdfIcon, HashIcon } from '@shared';
 
 interface SidebarProps {
 	onClose?: () => void;
@@ -23,6 +23,11 @@ export function Sidebar({ onClose }: SidebarProps) {
 				<NavLink to='/text/case' onClick={onClose}>
 					<S.GroupItem>
 						<CaseIcon /> 대소문자 변환
+					</S.GroupItem>
+				</NavLink>
+				<NavLink to='/text/json' onClick={onClose}>
+					<S.GroupItem>
+						<HashIcon /> JSON 포맷터
 					</S.GroupItem>
 				</NavLink>
 				{/* undeveloped */}

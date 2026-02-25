@@ -4,6 +4,7 @@ import {
 	MainLayout,
 	RemoveWhiteSpacePage,
 	CaseConvertPage,
+	JsonFormatterPage,
 	UnderConstructionPage,
 	PdfToolsPage,
 } from '../pages';
@@ -32,6 +33,10 @@ export function App() {
 									path='/text/case'
 									element={<CaseConvertPage />}
 								/>
+							<Route
+								path='/text/json'
+								element={<JsonFormatterPage />}
+							/>
 								{/* placeholders for upcoming tools */}
 								<Route
 									path='/text/url'

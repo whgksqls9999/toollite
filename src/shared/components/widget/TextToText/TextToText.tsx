@@ -11,10 +11,12 @@ interface TextToTextProps {
 	toolbar?: ButtonProps[];
 	inputProps?: Omit<NativeTextarea, 'value' | 'onChange'>;
 	outputProps?: Omit<NativeTextarea, 'value' | 'onChange'>;
+	/** 입력 영역(좌측 textarea) 직하단에 렌더링할 내용 (예: 에러 메시지) */
+	inputFooter?: React.ReactNode;
 }
 
 export function TextToText(props: TextToTextProps) {
-	const { value, onChange, outputValue, toolbar, inputProps, outputProps } =
+	const { value, onChange, outputValue, toolbar, inputProps, outputProps, inputFooter } =
 		props;
 
 	const onInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -30,6 +32,7 @@ export function TextToText(props: TextToTextProps) {
 						onChange={onInputChange}
 						{...inputProps}
 					/>
+					{inputFooter}
 				</S.VerticalSection>
 				<S.VerticalSection>
 					<Textarea value={outputValue} readOnly {...outputProps} />
