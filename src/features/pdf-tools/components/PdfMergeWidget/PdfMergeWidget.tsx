@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { FileUploadWidget } from '../FileUploadWidget';
-import { useFileList, mergeFilesToPdf, downloadPdf } from '@features/pdf-tools';
+import { useFileList } from '../../hooks/useFileList';
+import { mergeFilesToPdf, downloadPdf } from '../../lib/merge';
 import * as S from './PdfMergeWidget.style';
 import { FilePreviewWidget } from '../FilePreviewWidget';
 

@@ -1,11 +1,9 @@
 import { Button } from '@shared';
 import * as S from './FilePreviewWidget.style';
-import {
-	useDragSort,
-	usePreviews,
-	isPdfFile,
-	getFileKey,
-} from '@features/pdf-tools';
+import { useDragSort } from '../../hooks/useDragSort';
+import { usePreviews } from '../../hooks/usePreviews';
+import { isPdfFile } from '../../lib/mime';
+import { getFileKey } from '../../lib/fileKey';
 
 interface FilePreviewWidgetProps {
 	files: File[];

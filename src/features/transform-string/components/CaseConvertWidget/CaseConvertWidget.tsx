@@ -9,7 +9,7 @@ import {
 	toSnakeCase,
 	toKebabCase,
 	toPascalCase,
-} from '@features/transform-string/lib';
+} from '../../lib/case';
 
 export function CaseConvertWidget() {
 	const [inputValue, setInputValue] = useState<string>('');
