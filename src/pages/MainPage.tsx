@@ -126,7 +126,29 @@ export function MainPage() {
 				/>
 				<meta
 					name="keywords"
-					content="Toollite, 온라인 도구, 텍스트 정리, JSON 포맷터, PDF 도구, 무료 유틸리티, 개발자 도구"
+					content={t('app.keywords')}
+				/>
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:site_name"
+					content={t('app.name')}
+				/>
+				<meta
+					property="og:title"
+					content={t('app.title')}
+				/>
+				<meta
+					property="og:description"
+					content={t('app.description')}
+				/>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					name="twitter:title"
+					content={t('app.title')}
+				/>
+				<meta
+					name="twitter:description"
+					content={t('app.description')}
 				/>
 			</Helmet>
 			{/* Hero Section */}

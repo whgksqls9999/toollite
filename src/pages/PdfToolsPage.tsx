@@ -51,6 +51,32 @@ export function PdfToolsPage() {
 					name='description'
 					content={t('pdfTools.metaDescription')}
 				/>
+				<meta
+					name='keywords'
+					content={t('pdfTools.metaKeywords')}
+				/>
+				<meta property='og:type' content='website' />
+				<meta
+					property='og:site_name'
+					content={t('app.name')}
+				/>
+				<meta
+					property='og:title'
+					content={t('pdfTools.pageTitle')}
+				/>
+				<meta
+					property='og:description'
+					content={t('pdfTools.metaDescription')}
+				/>
+				<meta name='twitter:card' content='summary_large_image' />
+				<meta
+					name='twitter:title'
+					content={t('pdfTools.pageTitle')}
+				/>
+				<meta
+					name='twitter:description'
+					content={t('pdfTools.metaDescription')}
+				/>
 			</Helmet>
 			<PageWrapper>
 				<Tabs>
