@@ -18,6 +18,10 @@ export const Sidebar = styled.div`
 export const Group = styled.div`
 	padding-bottom: 1rem;
 	border-bottom: 1px solid #e0e0e0;
+
+	& + & {
+		padding-top: 1.25rem;
+	}
 `;
 
 export const GroupTitle = styled.div`
