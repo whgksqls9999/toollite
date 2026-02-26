@@ -98,10 +98,10 @@
 		}
 	},
 	"pdfTools": {
-		"pageTitle": "PDF 병합 도구 | Toollite",
-		"metaDescription": "여러 PDF 또는 이미지 파일을 하나의 PDF로 브라우저에서 안전하게 병합하세요.",
-		"title": "PDF 병합",
-		"description": "여러 개의 PDF 또는 이미지(PNG/JPG)를 하나의 PDF로 병합합니다.",
+		"pageTitle": "PDF 도구 - 병합 및 분할 | Toollite",
+		"metaDescription": "여러 PDF 또는 이미지 파일을 하나로 병합하거나, 하나의 PDF를 여러 개로 분할하는 무료 온라인 PDF 도구입니다.",
+		"title": "PDF 도구",
+		"description": "여러 개의 PDF 또는 이미지(PNG/JPG)를 하나의 PDF로 병합하거나, 하나의 PDF를 여러 개로 분할할 수 있습니다.",
 		"dropMessage": "PDF 파일을 드래그하여 놓거나 클릭하여 선택하세요",
 		"selectFilesButton": "파일 선택",
 		"buttonMerge": "PDF 병합",
@@ -109,7 +109,50 @@
 		"fileSummary": "첨부된 파일 ({{count}}개)",
 		"delete": "삭제",
 		"thumbPdf": "PDF",
-		"thumbImg": "IMG"
+		"thumbImg": "IMG",
+		"tabs": {
+			"merge": "PDF 병합",
+			"split": "PDF 분할"
+		},
+		"split": {
+			"title": "PDF 분할",
+			"description": "하나의 PDF를 페이지 범위 또는 일정 페이지 수 단위로 여러 개의 PDF로 나눌 수 있습니다.",
+			"sections": {
+				"upload": "파일 업로드",
+				"options": "분할 옵션",
+				"preview": "예상 분할 결과"
+			},
+			"fields": {
+				"fileLabel": "분할할 PDF 파일",
+				"selectedFile": "선택된 파일: {{name}}",
+				"pageCount": "총 페이지 수: {{count}}페이지",
+				"modeLabel": "분할 방식",
+				"rangeLabel": "페이지 범위",
+				"rangePlaceholder": "예: 1-3, 4, 5-10",
+				"rangeHelp": "쉼표(,)로 구간을 구분합니다.\n단일 페이지는 \"3\", 범위는 \"1-5\" 형태로 입력하세요.",
+				"chunkLabel": "N페이지씩 분할",
+				"chunkHelp": "예: 10을 입력하면 10페이지 단위로 잘라 여러 개의 PDF를 만듭니다."
+			},
+			"modes": {
+				"ranges": "페이지 범위로 분할",
+				"chunk": "N페이지씩 분할"
+			},
+			"preview": {
+				"empty": "분할 옵션을 입력하면 예상 분할 결과가 여기에 표시됩니다.",
+				"pages": "{{from}}–{{to}} 페이지"
+			},
+			"buttons": {
+				"split": "PDF 분할하기",
+				"splitting": "분할 중..."
+			},
+			"errors": {
+				"onlyPdf": "PDF 파일만 업로드해 주세요.",
+				"noFile": "먼저 분할할 PDF 파일을 업로드해 주세요.",
+				"invalidRanges": "페이지 범위 형식이 올바르지 않거나 총 페이지 수를 벗어났습니다.",
+				"invalidChunkSize": "유효한 분할 단위를 입력해 주세요.",
+				"generic": "PDF 분할에 실패했습니다. 범위를 단순하게 조정하거나 다시 시도해 주세요."
+			}
+		}
 	},
 	"underConstruction": {
 		"title": "아직 준비 중인 페이지입니다",

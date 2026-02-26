@@ -98,10 +98,10 @@
 		}
 	},
 	"pdfTools": {
-		"pageTitle": "PDF Merge Tool | Toollite",
-		"metaDescription": "Safely merge multiple PDF or image files into a single PDF in your browser.",
-		"title": "PDF Merge",
-		"description": "Merge multiple PDFs or images (PNG/JPG) into a single PDF.",
+		"pageTitle": "PDF Tools - Merge & Split | Toollite",
+		"metaDescription": "A free online PDF tool to merge multiple PDF or image files into one, or split a single PDF into multiple files.",
+		"title": "PDF Tools",
+		"description": "Merge multiple PDFs or images (PNG/JPG) into a single PDF, or split one PDF into multiple files.",
 		"dropMessage": "Drag and drop PDF files here, or click to select.",
 		"selectFilesButton": "Select files",
 		"buttonMerge": "Merge PDF",
@@ -109,7 +109,50 @@
 		"fileSummary": "Attached files ({{count}})",
 		"delete": "Delete",
 		"thumbPdf": "PDF",
-		"thumbImg": "IMG"
+		"thumbImg": "IMG",
+		"tabs": {
+			"merge": "PDF Merge",
+			"split": "PDF Split"
+		},
+		"split": {
+			"title": "PDF Split",
+			"description": "Split a single PDF into multiple files by page ranges or by a fixed number of pages.",
+			"sections": {
+				"upload": "File Upload",
+				"options": "Split Options",
+				"preview": "Preview of Split Results"
+			},
+			"fields": {
+				"fileLabel": "PDF file to split",
+				"selectedFile": "Selected file: {{name}}",
+				"pageCount": "Total pages: {{count}} pages",
+				"modeLabel": "Split mode",
+				"rangeLabel": "Page ranges",
+				"rangePlaceholder": "e.g. 1-3, 4, 5-10",
+				"rangeHelp": "Separate ranges with commas.\nUse \"3\" for a single page, and \"1-5\" for a range.",
+				"chunkLabel": "Split every N pages",
+				"chunkHelp": "For example, entering 10 will create multiple PDFs, each with 10 pages."
+			},
+			"modes": {
+				"ranges": "Split by page ranges",
+				"chunk": "Split every N pages"
+			},
+			"preview": {
+				"empty": "Once you enter split options, the expected results will appear here.",
+				"pages": "{{from}}–{{to}} pages"
+			},
+			"buttons": {
+				"split": "Split PDF",
+				"splitting": "Splitting..."
+			},
+			"errors": {
+				"onlyPdf": "Please upload PDF files only.",
+				"noFile": "Please upload a PDF file to split first.",
+				"invalidRanges": "The page range format is invalid or exceeds the total page count.",
+				"invalidChunkSize": "Please enter a valid split size.",
+				"generic": "Failed to split the PDF. Please simplify the ranges or try again."
+			}
+		}
 	},
 	"underConstruction": {
 		"title": "This page is under construction",
