@@ -1,18 +1,21 @@
 import { JsonFormatterWidget } from '@features/transform-string';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 export function JsonFormatterPage() {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<Helmet>
-				<title>JSON 포맷터 - 자동 포맷 & 미니파이 | Toollite</title>
+				<title>{t('jsonFormatter.pageTitle')}</title>
 				<meta
 					name='description'
-					content='JSON 문자열을 자동으로 포맷하거나 미니파이하고, 일반 텍스트를 JSON 문자열로 감싸주는 무료 온라인 JSON 포맷터입니다.'
+					content={t('jsonFormatter.metaDescription')}
 				/>
 				<meta
 					name='keywords'
-					content='JSON 포맷터, JSON 포맷, JSON 미니파이, JSON 문자열, JSON 도구, 온라인 JSON 포맷터'
+					content={t('jsonFormatter.metaKeywords')}
 				/>
 			</Helmet>
 			<JsonFormatterWidget />

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { theme } from '@style';
 import { TextIcon, PdfIcon, PaletteIcon } from '@shared';
 
@@ -113,13 +114,15 @@ const ToolDescription = styled.p`
 `;
 
 export function MainPage() {
+	const { t } = useTranslation();
+
 	return (
 		<Wrapper>
 			<Helmet>
-				<title>Toollite - 무료 온라인 도구 모음</title>
+				<title>{t('app.title')}</title>
 				<meta
 					name="description"
-					content="텍스트 정리, 대소문자 변환, JSON 포맷터, PDF 병합 등 다양한 무료 온라인 도구. 설치 없이 브라우저에서 바로 사용하세요."
+					content={t('app.description')}
 				/>
 				<meta
 					name="keywords"
@@ -160,11 +163,8 @@ export function MainPage() {
 						</svg>
 					</LogoIcon>
 				</LogoContainer>
-				<Title>Toollite에 오신 것을 환영합니다</Title>
-				<Description>
-					다양한 유틸리티 도구들을 사용하여 작업을 더욱 효율적으로
-					만들어보세요.
-				</Description>
+				<Title>{t('main.heroTitle')}</Title>
+				<Description>{t('main.heroDescription')}</Description>
 			</HeroSection>
 
 			{/* Tools Section */}
@@ -175,10 +175,9 @@ export function MainPage() {
 						<ToolIcon className='tool-icon'>
 							<TextIcon size={32} />
 						</ToolIcon>
-						<ToolTitle>텍스트 도구</ToolTitle>
+						<ToolTitle>{t('main.textToolsTitle')}</ToolTitle>
 						<ToolDescription>
-							텍스트 정리, 대소문자 변환, URL 인코딩 등의 텍스트
-							처리 도구들
+							{t('main.textToolsDescription')}
 						</ToolDescription>
 					</ToolCard>
 				</Link>
@@ -189,10 +188,9 @@ export function MainPage() {
 						<ToolIcon className='tool-icon'>
 							<PdfIcon size={32} />
 						</ToolIcon>
-						<ToolTitle>파일 변환</ToolTitle>
+						<ToolTitle>{t('main.fileToolsTitle')}</ToolTitle>
 						<ToolDescription>
-							PDF, 엑셀, 이미지 등 다양한 파일 형식 변환 및 처리
-							도구들
+							{t('main.fileToolsDescription')}
 						</ToolDescription>
 					</ToolCard>
 				</Link>
@@ -203,10 +201,9 @@ export function MainPage() {
 						<ToolIcon className='tool-icon'>
 							<PaletteIcon size={32} />
 						</ToolIcon>
-						<ToolTitle>기타 도구</ToolTitle>
+						<ToolTitle>{t('main.miscToolsTitle')}</ToolTitle>
 						<ToolDescription>
-							색상 도구, 계산기, 날짜 도구 등 다양한 유틸리티
-							도구들
+							{t('main.miscToolsDescription')}
 						</ToolDescription>
 					</ToolCard>
 				</Link>

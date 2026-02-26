@@ -1,4 +1,5 @@
 import { Textarea, Button, ResetIcon } from '@shared';
+import { useTranslation } from 'react-i18next';
 
 export interface InputWidgetProps {
 	value: string;
@@ -6,18 +7,22 @@ export interface InputWidgetProps {
 }
 
 export function InputWidget({ value, onChange }: InputWidgetProps) {
+	const { t } = useTranslation();
+
 	return (
 		<div>
-			<div style={{ fontWeight: 500, marginBottom: 8 }}>입력 텍스트</div>
+			<div style={{ fontWeight: 500, marginBottom: 8 }}>
+				{t('caseConvert.inputLabel')}
+			</div>
 			<Textarea
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
-				placeholder='변환할 텍스트를 입력해주세요'
+				placeholder={t('removeWhitespace.inputPlaceholder')}
 				rows={6}
 			/>
 			<div style={{ marginTop: 8 }}>
 				<Button
-					display_value='초기화'
+					display_value={t('common.buttons.reset')}
 					onClick={() => onChange('')}
 					variant='monoOutline'
 					Icon={<ResetIcon size={16} />}

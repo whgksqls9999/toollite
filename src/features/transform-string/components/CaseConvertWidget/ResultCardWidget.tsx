@@ -1,5 +1,6 @@
 import * as S from './CaseConvertWidget.style';
 import { IconButton, CopyIcon, useToastContext } from '@shared';
+import { useTranslation } from 'react-i18next';
 
 export interface ResultCardWidgetProps {
 	title: string;
@@ -15,13 +16,14 @@ export function ResultCardWidget({
 	onCopy,
 }: ResultCardWidgetProps) {
 	const { showToast } = useToastContext();
+	const { t } = useTranslation();
 
 	const handleCopy = async (value: string) => {
 		try {
 			await navigator.clipboard.writeText(value);
-			showToast('클립보드에 복사가 완료됐습니다!', 'success');
+			showToast(t('common.toast.copySuccess'), 'success');
 		} catch (error) {
-			showToast('복사에 실패했습니다.', 'error');
+			showToast(t('common.toast.copyError'), 'error');
 		}
 		onCopy?.(value);
 	};
@@ -34,12 +36,14 @@ export function ResultCardWidget({
 					<S.Sample>{sample}</S.Sample>
 				</div>
 				<IconButton
-					title='복사'
+					title={t('caseConvert.copyTitle')}
 					icon={<CopyIcon size={16} />}
 					onClick={() => handleCopy(result)}
 				/>
 			</S.CardHeader>
-			<S.ResultBox>{result || '결과가 여기에 표시됩니다'}</S.ResultBox>
+			<S.ResultBox>
+				{result || t('caseConvert.resultPlaceholder')}
+			</S.ResultBox>
 		</S.Card>
 	);
 }

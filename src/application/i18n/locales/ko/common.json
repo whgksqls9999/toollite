@@ -1,0 +1,163 @@
+{
+	"app": {
+		"name": "Toollite",
+		"title": "Toollite - 무료 온라인 도구 모음",
+		"description": "텍스트 정리, 대소문자 변환, JSON 포맷터, PDF 병합 등 다양한 무료 온라인 도구. 설치 없이 브라우저에서 바로 사용하세요.",
+		"keywords": "온라인 도구, 텍스트 도구, 개발자 도구, 무료 도구, 텍스트 정리, 대소문자 변환, URL 인코딩, 공백 제거"
+	},
+	"main": {
+		"heroTitle": "Toollite에 오신 것을 환영합니다",
+		"heroDescription": "다양한 유틸리티 도구들을 사용하여 작업을 더욱 효율적으로 만들어보세요.",
+		"textToolsTitle": "텍스트 도구",
+		"textToolsDescription": "텍스트 정리, 대소문자 변환, URL 인코딩 등의 텍스트 처리 도구들",
+		"fileToolsTitle": "파일 변환",
+		"fileToolsDescription": "PDF, 엑셀, 이미지 등 다양한 파일 형식 변환 및 처리 도구들",
+		"miscToolsTitle": "기타 도구",
+		"miscToolsDescription": "색상 도구, 계산기, 날짜 도구 등 다양한 유틸리티 도구들"
+	},
+	"about": {
+		"pageTitle": "사이트 소개 | Toollite",
+		"metaDescription": "Toollite는 텍스트 정리, 대소문자 변환, JSON 포맷터, PDF 도구 등 개발자와 일반 사용자를 위한 무료 온라인 유틸리티 모음입니다.",
+		"metaKeywords": "Toollite, 온라인 도구, 텍스트 도구, JSON 포맷터, PDF 합치기, 무료 유틸리티, 개발자 도구",
+		"title": "사이트 소개",
+		"whatIsTitle": "Toollite란?",
+		"whatIsBody": "Toollite(툴라이트)는 개발자, 기획자, 일반 사용자를 위한 무료 온라인 유틸리티 모음 사이트입니다. 텍스트 정리, 대소문자 변환, JSON 포맷터, PDF 병합 등 자주 쓰는 작업을 브라우저에서 바로 사용할 수 있도록 제공합니다. 설치 없이 빠르고 안전하게 이용할 수 있습니다.",
+		"toolsTitle": "제공 도구",
+		"toolsBody": "현재 텍스트 정리(공백·줄바꿈 제거), 대소문자 변환, JSON 포맷터/미니파이, PDF 병합 등이 제공됩니다. 추가 도구는 지속적으로 확장할 예정입니다. 모든 도구는 클라이언트에서 동작하며, 입력하신 내용을 서버로 전송해 저장하지 않습니다.",
+		"targetTitle": "이용 대상",
+		"targetBody": "코드나 문서를 다루는 개발자, 마케터, 사무직 등 누구나 사용할 수 있습니다. 개인·업무용 무료 이용을 원칙으로 하며, 상업적 재배포나 도구의 무단 복제는 금지합니다.",
+		"contactTitle": "문의 및 피드백",
+		"contactBody": "오류 제보, 기능 제안, 개인정보 관련 문의는 사이트에 공개된 채널(예: GitHub 이슈, 연락처)을 통해 보내 주시면 됩니다. 개인정보처리방침은 별도 페이지에서 확인하실 수 있습니다.",
+		"linkPrivacy": "개인정보처리방침",
+		"linkHome": "홈으로 돌아가기"
+	},
+	"layout": {
+		"sidebar": {
+			"textTools": "텍스트 도구",
+			"textClean": "텍스트 정리",
+			"textCase": "대소문자 변환",
+			"textJsonFormatter": "JSON 포맷터",
+			"fileTools": "파일 변환",
+			"filePdfTools": "PDF 도구"
+		},
+		"footer": {
+			"privacy": "개인정보처리방침",
+			"about": "사이트 소개",
+			"copyright": "© {{year}} Toollite. 무료 온라인 도구 모음."
+		},
+		"header": {
+			"toggleSidebarOpen": "사이드바 열기",
+			"toggleSidebarClose": "사이드바 닫기"
+		}
+	},
+	"removeWhitespace": {
+		"pageTitle": "텍스트 정리 도구 - 공백 제거, 줄바꿈 정리 | Toollite",
+		"metaDescription": "텍스트의 공백, 탭, 줄바꿈을 정리하여 깔끔하게 만드는 무료 온라인 도구입니다. 연속된 공백을 하나로 합치거나 모든 공백을 제거할 수 있습니다.",
+		"metaKeywords": "텍스트 정리, 공백 제거, 줄바꿈 제거, 탭 제거, 텍스트 정리 도구, 무료 도구",
+		"title": "텍스트 정리 도구",
+		"description": "텍스트의 공백, 줄바꿈 등을 정리하여 깔끔하게 만들어보세요.",
+		"optionRemoveAll": "모든 공백 제거",
+		"optionCollapseSpaces": "공백 하나로 합치기",
+		"optionReplace": "문자열 변경",
+		"inputPlaceholder": "변환할 텍스트를 입력해주세요"
+	},
+	"caseConvert": {
+		"pageTitle": "대소문자 변환 도구 - 무료 온라인 텍스트 변환기 | Toollite",
+		"metaDescription": "텍스트를 대문자, 소문자, 카멜케이스, 스네이크케이스, 케밥케이스 등으로 쉽게 변환하는 무료 온라인 도구입니다.",
+		"metaKeywords": "대소문자 변환, 텍스트 변환, 카멜케이스, 스네이크케이스, 케밥케이스, 파스칼케이스, 무료 도구",
+		"title": "대소문자 변환 도구",
+		"description": "텍스트를 다양한 케이스 형식으로 변환해보세요.",
+		"inputLabel": "입력 텍스트",
+		"modes": {
+			"lower": "소문자",
+			"upper": "대문자",
+			"title": "제목 케이스",
+			"camel": "카멜 케이스",
+			"pascal": "파스칼 케이스",
+			"snake": "스네이크 케이스",
+			"kebab": "케밥 케이스"
+		},
+		"resultPlaceholder": "결과가 여기에 표시됩니다",
+		"copyTitle": "복사"
+	},
+	"jsonFormatter": {
+		"pageTitle": "JSON 포맷터 - 자동 포맷 & 미니파이 | Toollite",
+		"metaDescription": "JSON 문자열을 자동으로 포맷하거나 미니파이하고, 일반 텍스트를 JSON 문자열로 감싸주는 무료 온라인 JSON 포맷터입니다.",
+		"metaKeywords": "JSON 포맷터, JSON 포맷, JSON 미니파이, JSON 문자열, JSON 도구, 온라인 JSON 포맷터",
+		"title": "JSON 포맷터",
+		"description": "JSON 문자열을 포맷하거나, 일반 텍스트를 JSON 문자열로 감쌀 수 있습니다.",
+		"modeLabel": "모드",
+		"modeParse": "JSON.parse (문자열 → 값)",
+		"modeParseSortCheckbox": "키 알파벳 순 정렬",
+		"modeStringify": "JSON.stringify (값/텍스트 → JSON 문자열)",
+		"inputPlaceholder": "{\"name\":\"Toollite\",\"version\":1} 처럼 JSON 문자열 또는 일반 텍스트를 입력하세요.",
+		"outputPlaceholder": "포맷된 JSON 결과가 여기에 표시됩니다.",
+		"errors": {
+			"invalidJson": "유효한 JSON 형식이 아닙니다.\n({{message}})",
+			"unknown": "알 수 없는 오류가 발생했습니다."
+		}
+	},
+	"pdfTools": {
+		"pageTitle": "PDF 병합 도구 | Toollite",
+		"metaDescription": "여러 PDF 또는 이미지 파일을 하나의 PDF로 브라우저에서 안전하게 병합하세요.",
+		"title": "PDF 병합",
+		"description": "여러 개의 PDF 또는 이미지(PNG/JPG)를 하나의 PDF로 병합합니다.",
+		"dropMessage": "PDF 파일을 드래그하여 놓거나 클릭하여 선택하세요",
+		"selectFilesButton": "파일 선택",
+		"buttonMerge": "PDF 병합",
+		"buttonMerging": "병합 중...",
+		"fileSummary": "첨부된 파일 ({{count}}개)",
+		"delete": "삭제",
+		"thumbPdf": "PDF",
+		"thumbImg": "IMG"
+	},
+	"underConstruction": {
+		"title": "아직 준비 중인 페이지입니다",
+		"description": "요청하신 기능을 열심히 만들고 있어요. 곧 만나요!",
+		"note": "- 개발 진행 중입니다. 현재 이 경로는 임시 안내만 표시됩니다."
+	},
+	"privacy": {
+		"pageTitle": "개인정보처리방침 | Toollite",
+		"metaDescription": "Toollite 개인정보처리방침. 수집하는 정보, 이용 목적, 제3자 제공, 쿠키 및 접속 로그에 대한 안내입니다.",
+		"title": "개인정보처리방침",
+		"lastUpdated": "최종 업데이트: 2025년 2월",
+		"section1Title": "1. 개요",
+		"section1Body": "Toollite(이하 “사이트”)는 이용자의 개인정보를 중요시하며, 「개인정보 보호법」 등 관련 법령을 준수합니다. 본 방침은 사이트에서 수집하는 정보, 이용 목적, 보관 및 파기, 이용자 권리에 대해 안내합니다.",
+		"section2Title": "2. 수집하는 정보",
+		"section2Intro": "사이트는 서비스 제공 및 품질 개선을 위해 아래와 같은 정보를 수집할 수 있습니다.",
+		"section2Item1": "접속 로그: IP 주소, 브라우저 종류, 접속 일시, 참조 URL",
+		"section2Item2": "이용 환경: 디바이스 종류, 화면 해상도(분석 도구를 통한 익명 집계)",
+		"section2Item3": "도구 이용 시 입력하신 텍스트·파일: 서버에 저장되지 않으며, 당 세션 내 처리만 이루어집니다.",
+		"section3Title": "3. 이용 목적",
+		"section3Item1": "서비스 제공, 오류 해결 및 안정성 확보",
+		"section3Item2": "접속 통계 및 이용 패턴 분석(익명화·집계)",
+		"section3Item3": "서비스 개선 및 신규 기능 기획",
+		"section4Title": "4. 제3자 제공 및 외부 서비스",
+		"section4Body": "사이트는 접속 분석 및 광고 서비스를 위해 아래 외부 서비스를 사용할 수 있습니다. 각 서비스의 수집·이용 방식은 해당 사업자의 개인정보처리방침을 따릅니다.",
+		"section4Item1": "Google Analytics: 접속 통계 분석",
+		"section4Item2": "Google AdSense: 광고 게재(해당 시 적용)",
+		"section4Item3": "Microsoft Clarity: 이용 행태 분석(익명)",
+		"section4Item4": "Vercel: 호스팅 및 분석",
+		"section5Title": "5. 쿠키",
+		"section5Body": "쿠키는 이용 편의와 서비스 분석을 위해 사용됩니다. 브라우저 설정에서 쿠키 사용을 제한할 수 있으며, 제한 시 일부 기능이 제대로 동작하지 않을 수 있습니다.",
+		"section6Title": "6. 보관 및 파기",
+		"section6Body": "접속 로그 등은 법령에서 정한 기간 또는 서비스 운영에 필요한 기간 동안 보관 후 파기합니다. 도구 이용 시 입력한 내용은 서버에 저장되지 않으며, 페이지를 벗어나면 별도 보관되지 않습니다.",
+		"section7Title": "7. 이용자 권리",
+		"section7Body": "이용자는 개인정보 처리에 관한 문의·열람·정정·삭제 요청을 할 수 있습니다. 관련 요청은 사이트 소개 페이지의 안내를 통해 연락해 주시면 됩니다.",
+		"section8Title": "8. 변경 사항",
+		"section8Body": "개인정보처리방침이 변경되는 경우 사이트 내에 공지하며, 중요한 변경 시에는 갱신일을 명시합니다."
+	},
+	"common": {
+		"buttons": {
+			"reset": "초기화",
+			"copy": "복사하기",
+			"delete": "삭제"
+		},
+		"toast": {
+			"copySuccess": "클립보드에 복사가 완료됐습니다!",
+			"copyError": "복사에 실패했습니다.",
+			"jsonCopySuccess": "결과가 클립보드에 복사되었습니다."
+		}
+	}
+}
+

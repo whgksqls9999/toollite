@@ -10,57 +10,59 @@ import {
 	toKebabCase,
 	toPascalCase,
 } from '../../lib/case';
+import { useTranslation } from 'react-i18next';
 
 export function CaseConvertWidget() {
+	const { t } = useTranslation();
 	const [inputValue, setInputValue] = useState<string>('');
 
 	const items = useMemo(
 		() => [
 			{
-				title: '소문자',
+				title: t('caseConvert.modes.lower'),
 				sample: 'hello world',
 				result: inputValue.toLowerCase(),
 			},
 			{
-				title: '대문자',
+				title: t('caseConvert.modes.upper'),
 				sample: 'HELLO WORLD',
 				result: inputValue.toUpperCase(),
 			},
 			{
-				title: '제목 케이스',
+				title: t('caseConvert.modes.title'),
 				sample: 'Hello World',
 				result: toTitleCase(inputValue),
 			},
 			{
-				title: '카멜 케이스',
+				title: t('caseConvert.modes.camel'),
 				sample: 'helloWorld',
 				result: toCamelCase(inputValue),
 			},
 			{
-				title: '파스칼 케이스',
+				title: t('caseConvert.modes.pascal'),
 				sample: 'HelloWorld',
 				result: toPascalCase(inputValue),
 			},
 			{
-				title: '스네이크 케이스',
+				title: t('caseConvert.modes.snake'),
 				sample: 'hello_world',
 				result: toSnakeCase(inputValue),
 			},
 			{
-				title: '케밥 케이스',
+				title: t('caseConvert.modes.kebab'),
 				sample: 'hello-world',
 				result: toKebabCase(inputValue),
 			},
 		],
-		[inputValue]
+		[inputValue, t]
 	);
 
 	return (
 		<S.Wrapper>
 			<Description>
-				<Description.Title>대소문자 변환 도구</Description.Title>
+				<Description.Title>{t('caseConvert.title')}</Description.Title>
 				<Description.Contents>
-					텍스트를 다양한 케이스 형식으로 변환해보세요.
+					{t('caseConvert.description')}
 				</Description.Contents>
 			</Description>
 

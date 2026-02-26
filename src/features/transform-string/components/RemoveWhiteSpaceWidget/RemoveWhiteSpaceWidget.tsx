@@ -10,8 +10,10 @@ import {
 	ResetIcon,
 	useToastContext,
 } from '@shared';
+import { useTranslation } from 'react-i18next';
 
 export function RemoveWhiteSpaceWidget() {
+	const { t } = useTranslation();
 	const [selectedTransform, setSelectedTransform] = useState<number>(0);
 	const [inputValue, setInputValue] = useState<string>('');
 	const [fromValue, setFromValue] = useState<string>('');
@@ -22,19 +24,19 @@ export function RemoveWhiteSpaceWidget() {
 		() => [
 			{
 				id: 0,
-				label: '모든 공백 제거',
+				label: t('removeWhitespace.optionRemoveAll'),
 				fn: (s: string) => s.replace(/\s+/g, ''),
 				type: 'default' as const,
 			},
 			{
 				id: 1,
-				label: '공백 하나로 합치기',
+				label: t('removeWhitespace.optionCollapseSpaces'),
 				fn: (s: string) => s.replace(/\s+/g, ' '),
 				type: 'default' as const,
 			},
 			{
 				id: 2,
-				label: '문자열 변경',
+				label: t('removeWhitespace.optionReplace'),
 				fn: (s: string) => {
 					if (!fromValue) return s;
 					return s.replace(
@@ -48,7 +50,7 @@ export function RemoveWhiteSpaceWidget() {
 				type: 'replace' as const,
 			},
 		],
-		[fromValue, toValue]
+		[fromValue, toValue, t]
 	);
 
 	const outputValue = transforms[selectedTransform].fn(inputValue);
@@ -56,21 +58,21 @@ export function RemoveWhiteSpaceWidget() {
 	const handleCopy = async () => {
 		try {
 			await navigator.clipboard.writeText(outputValue);
-			showToast('클립보드에 복사가 완료됐습니다!', 'success');
+			showToast(t('common.toast.copySuccess'), 'success');
 		} catch (error) {
-			showToast('복사에 실패했습니다.', 'error');
+			showToast(t('common.toast.copyError'), 'error');
 		}
 	};
 
 	const toolbar: ButtonProps[] = [
 		{
-			display_value: '초기화',
+			display_value: t('common.buttons.reset'),
 			onClick: () => setInputValue(''),
 			variant: 'monoOutline',
 			Icon: <ResetIcon size={16} />,
 		},
 		{
-			display_value: '복사하기',
+			display_value: t('common.buttons.copy'),
 			onClick: handleCopy,
 			variant: 'mono',
 			Icon: <CopyIcon size={16} />,
@@ -95,9 +97,11 @@ export function RemoveWhiteSpaceWidget() {
 	return (
 		<S.Wrapper>
 			<Description>
-				<Description.Title>텍스트 정리 도구</Description.Title>
+				<Description.Title>
+					{t('removeWhitespace.title')}
+				</Description.Title>
 				<Description.Contents>
-					텍스트의 공백, 줄바꿈 등을 정리하여 깔끔하게 만들어보세요.
+					{t('removeWhitespace.description')}
 				</Description.Contents>
 			</Description>
 			<RadioGroup {...optionProps} />
@@ -107,7 +111,7 @@ export function RemoveWhiteSpaceWidget() {
 				outputValue={outputValue}
 				toolbar={toolbar}
 				inputProps={{
-					placeholder: '변환할 텍스트를 입력해주세요',
+					placeholder: t('removeWhitespace.inputPlaceholder'),
 				}}
 				outputProps={{ readOnly: true }}
 			/>

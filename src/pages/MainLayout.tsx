@@ -7,8 +7,10 @@ import {
 import { useCallback, useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 export function MainLayout() {
+	const { t } = useTranslation();
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
 	const toggleSidebar = useCallback(() => {
@@ -18,33 +20,33 @@ export function MainLayout() {
 	return (
 		<>
 			<Helmet>
-				<title>Toollite - 무료 온라인 도구 모음</title>
+				<title>{t('app.title')}</title>
 				<meta
 					name='description'
-					content='텍스트 정리, 대소문자 변환, URL 인코딩 등 다양한 도구를 무료로 제공합니다. 빠르고 정확한 온라인 도구로 생산성을 높이세요.'
+					content={t('app.description')}
 				/>
 				<meta
 					name='keywords'
-					content='온라인 도구, 텍스트 도구, 개발자 도구, 무료 도구, 텍스트 정리, 대소문자 변환, URL 인코딩, 공백 제거'
+					content={t('app.keywords')}
 				/>
 				<meta
 					property='og:title'
-					content='Toollite - 무료 온라인 도구 모음'
+					content={t('app.title')}
 				/>
 				<meta
 					property='og:description'
-					content='텍스트 정리, 대소문자 변환, URL 인코딩 등 다양한 도구를 무료로 제공합니다.'
+					content={t('app.description')}
 				/>
 				<meta property='og:type' content='website' />
 				<meta property='og:url' content='https://toollite.vercel.app' />
 				<meta name='twitter:card' content='summary_large_image' />
 				<meta
 					name='twitter:title'
-					content='Toollite - 무료 온라인 도구 모음'
+					content={t('app.title')}
 				/>
 				<meta
 					name='twitter:description'
-					content='텍스트 정리, 대소문자 변환, URL 인코딩 등 다양한 도구를 무료로 제공합니다.'
+					content={t('app.description')}
 				/>
 			</Helmet>
 			<Container>

@@ -4,6 +4,7 @@
 
 import * as S from './Sidebar.style';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { TextIcon, CaseIcon, PdfIcon, HashIcon } from '@shared';
 
 interface SidebarProps {
@@ -11,23 +12,25 @@ interface SidebarProps {
 }
 
 export function Sidebar({ onClose }: SidebarProps) {
+	const { t } = useTranslation();
+
 	return (
 		<S.Sidebar>
 			<S.Group>
-				<S.GroupTitle>텍스트 도구</S.GroupTitle>
+				<S.GroupTitle>{t('layout.sidebar.textTools')}</S.GroupTitle>
 				<NavLink to='/text/clean' onClick={onClose}>
 					<S.GroupItem>
-						<TextIcon /> 텍스트 정리
+						<TextIcon /> {t('layout.sidebar.textClean')}
 					</S.GroupItem>
 				</NavLink>
 				<NavLink to='/text/case' onClick={onClose}>
 					<S.GroupItem>
-						<CaseIcon /> 대소문자 변환
+						<CaseIcon /> {t('layout.sidebar.textCase')}
 					</S.GroupItem>
 				</NavLink>
 				<NavLink to='/text/json' onClick={onClose}>
 					<S.GroupItem>
-						<HashIcon /> JSON 포맷터
+						<HashIcon /> {t('layout.sidebar.textJsonFormatter')}
 					</S.GroupItem>
 				</NavLink>
 				{/* undeveloped */}
@@ -37,10 +40,10 @@ export function Sidebar({ onClose }: SidebarProps) {
 			</S.Group>
 
 			<S.Group>
-				<S.GroupTitle>파일 변환</S.GroupTitle>
+				<S.GroupTitle>{t('layout.sidebar.fileTools')}</S.GroupTitle>
 				<NavLink to='/files/pdf' onClick={onClose}>
 					<S.GroupItem>
-						<PdfIcon /> PDF 도구
+						<PdfIcon /> {t('layout.sidebar.filePdfTools')}
 					</S.GroupItem>
 				</NavLink>
 				{/* undeveloped */}

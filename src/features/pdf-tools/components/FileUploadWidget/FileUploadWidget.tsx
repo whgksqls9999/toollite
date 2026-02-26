@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { Button, Input, Description } from '@shared';
 import * as S from './FileUploadWidget.style';
+import { useTranslation } from 'react-i18next';
 
 interface FileUploadWidgetProps {
 	onFilesAdded: (files: File[]) => void;
@@ -15,6 +16,7 @@ export function FileUploadWidget({
 	isMerging,
 	fileCount,
 }: FileUploadWidgetProps) {
+	const { t } = useTranslation();
 	const [isOver, setIsOver] = useState(false);
 
 	const onFileChange = useCallback(
@@ -48,10 +50,9 @@ export function FileUploadWidget({
 	return (
 		<S.Wrapper>
 			<Description>
-				<Description.Title>PDF 병합</Description.Title>
+				<Description.Title>{t('pdfTools.title')}</Description.Title>
 				<Description.Contents>
-					여러 개의 PDF 또는 이미지(PNG/JPG)를 하나의 PDF로
-					병합합니다.
+					{t('pdfTools.description')}
 				</Description.Contents>
 			</Description>
 			<S.DropArea
@@ -61,7 +62,7 @@ export function FileUploadWidget({
 				onDragLeave={onDragLeave}
 			>
 				<div style={{ textAlign: 'center' }}>
-					PDF 파일을 드래그하여 놓거나 클릭하여 선택하세요
+					{t('pdfTools.dropMessage')}
 				</div>
 				<S.Row>
 					<Input
@@ -70,10 +71,22 @@ export function FileUploadWidget({
 						multiple
 						accept='.pdf,image/*'
 						onChange={onFileChange}
+						style={{ display: 'none' }}
 					/>
 					<Button
 						variant='monoOutline'
-						display_value={isMerging ? '병합 중...' : 'PDF 병합'}
+						display_value={t('pdfTools.selectFilesButton')}
+						onClick={() =>
+							document.getElementById('pdfInput')?.click()
+						}
+					/>
+					<Button
+						variant='mono'
+						display_value={
+							isMerging
+								? t('pdfTools.buttonMerging')
+								: t('pdfTools.buttonMerge')
+						}
 						onClick={onMerge}
 						disabled={fileCount < 2 || isMerging}
 					/>

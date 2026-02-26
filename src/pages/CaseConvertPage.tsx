@@ -1,20 +1,21 @@
 import { CaseConvertWidget } from '@features/transform-string';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 export function CaseConvertPage() {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<Helmet>
-				<title>
-					대소문자 변환 도구 - 무료 온라인 텍스트 변환기 | Toollite
-				</title>
+				<title>{t('caseConvert.pageTitle')}</title>
 				<meta
 					name='description'
-					content='텍스트를 대문자, 소문자, 카멜케이스, 스네이크케이스, 케밥케이스 등으로 쉽게 변환하는 무료 온라인 도구입니다.'
+					content={t('caseConvert.metaDescription')}
 				/>
 				<meta
 					name='keywords'
-					content='대소문자 변환, 텍스트 변환, 카멜케이스, 스네이크케이스, 케밥케이스, 파스칼케이스, 무료 도구'
+					content={t('caseConvert.metaKeywords')}
 				/>
 			</Helmet>
 			<CaseConvertWidget />

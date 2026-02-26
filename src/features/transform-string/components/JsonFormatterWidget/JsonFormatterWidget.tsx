@@ -10,6 +10,7 @@ import {
 	ResetIcon,
 	useToastContext,
 } from '@shared';
+import { useTranslation } from 'react-i18next';
 
 type Mode = 'parse' | 'stringify';
 
@@ -56,7 +57,7 @@ function formatJson(input: unknown, mode: Mode, sortKeys: boolean): JsonResult {
 			return JSON.stringify(value, null, DEFAULT_INDENT);
 		} catch (e) {
 			if (e instanceof Error) throw e;
-			throw new Error('결과를 문자열로 변환할 수 없습니다.');
+			throw new Error('Result could not be converted to string.');
 		}
 	}
 
@@ -83,12 +84,12 @@ function formatJson(input: unknown, mode: Mode, sortKeys: boolean): JsonResult {
 		if (e instanceof Error) {
 			return {
 				value: '',
-				error: `유효한 JSON 형식이 아닙니다.\n(${e.message})`,
+				error: e.message,
 			};
 		}
 		return {
 			value: '',
-			error: '알 수 없는 오류가 발생했습니다.',
+			error: 'UNKNOWN_ERROR',
 		};
 	}
 }
@@ -98,30 +99,38 @@ export function JsonFormatterWidget() {
 	const [sortKeys, setSortKeys] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 	const { showToast } = useToastContext();
+	const { t } = useTranslation();
 
-	const { value: outputValue, error } = useMemo(
+	const { value: rawOutputValue, error } = useMemo(
 		() => formatJson(inputValue, mode, sortKeys),
 		[inputValue, mode, sortKeys]
 	);
 
+	const hasUnknownError = error === 'UNKNOWN_ERROR';
+	const displayValue = error
+		? hasUnknownError
+			? t('jsonFormatter.errors.unknown')
+			: t('jsonFormatter.errors.invalidJson', { message: error })
+		: rawOutputValue;
+
 	const handleCopy = async () => {
 		try {
-			await navigator.clipboard.writeText(outputValue);
-			showToast('결과가 클립보드에 복사되었습니다.', 'success');
+			await navigator.clipboard.writeText(displayValue);
+			showToast(t('common.toast.jsonCopySuccess'), 'success');
 		} catch {
-			showToast('복사에 실패했습니다.', 'error');
+			showToast(t('common.toast.copyError'), 'error');
 		}
 	};
 
 	const toolbar: ButtonProps[] = [
 		{
-			display_value: '초기화',
+			display_value: t('common.buttons.reset'),
 			onClick: () => setInputValue(''),
 			variant: 'monoOutline',
 			Icon: <ResetIcon size={16} />,
 		},
 		{
-			display_value: '복사하기',
+			display_value: t('common.buttons.copy'),
 			onClick: handleCopy,
 			variant: 'mono',
 			Icon: <CopyIcon size={16} />,
@@ -139,16 +148,16 @@ export function JsonFormatterWidget() {
 		options: [
 			{
 				value: 'parse',
-				label: 'JSON.parse (문자열 → 값)',
+				label: t('jsonFormatter.modeParse'),
 				type: 'checkbox',
-				checkboxLabel: '키 알파벳 순 정렬',
+				checkboxLabel: t('jsonFormatter.modeParseSortCheckbox'),
 				checkboxChecked: sortKeys,
 				onCheckboxChange: setSortKeys,
 				checkboxId: 'json_sort_keys',
 			},
 			{
 				value: 'stringify',
-				label: 'JSON.stringify (값/텍스트 → JSON 문자열)',
+				label: t('jsonFormatter.modeStringify'),
 			},
 		],
 	};
@@ -156,17 +165,16 @@ export function JsonFormatterWidget() {
 	return (
 		<S.Wrapper>
 			<Description>
-				<Description.Title>JSON 포맷터</Description.Title>
+				<Description.Title>{t('jsonFormatter.title')}</Description.Title>
 				<Description.Contents>
-					JSON 문자열을 포맷하거나, 일반 텍스트를 JSON 문자열로 감쌀
-					수 있습니다.
+					{t('jsonFormatter.description')}
 				</Description.Contents>
 			</Description>
 
 			<S.OptionsPanel>
 				<S.OptionsRow>
 					<S.OptionsGroup>
-						<S.OptionLabel>모드</S.OptionLabel>
+						<S.OptionLabel>{t('jsonFormatter.modeLabel')}</S.OptionLabel>
 						<RadioGroup {...modeOptions} />
 					</S.OptionsGroup>
 				</S.OptionsRow>
@@ -176,17 +184,16 @@ export function JsonFormatterWidget() {
 				<TextToText
 					value={inputValue}
 					onChange={setInputValue}
-					outputValue={error ?? outputValue}
+					outputValue={displayValue}
 					toolbar={toolbar}
 					inputProps={{
-						placeholder:
-							'{"name":"Toollite","version":1} 처럼 JSON 문자열 또는 일반 텍스트를 입력하세요.',
+						placeholder: t('jsonFormatter.inputPlaceholder'),
 					}}
 					outputProps={{
 						readOnly: true,
 						placeholder: error
 							? undefined
-							: '포맷된 JSON 결과가 여기에 표시됩니다.',
+							: t('jsonFormatter.outputPlaceholder'),
 						...(error && { style: { color: '#EF4444' } }),
 					}}
 				/>

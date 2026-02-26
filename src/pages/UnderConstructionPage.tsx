@@ -1,5 +1,5 @@
-import {} from 'react';
 import styled from '@emotion/styled';
+import { useTranslation } from 'react-i18next';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -27,17 +27,17 @@ const Box = styled.div`
 `;
 
 export function UnderConstructionPage() {
+	const { t } = useTranslation();
+
 	return (
 		<Wrapper>
 			<Description>
-				<div>아직 준비 중인 페이지입니다</div>
+				<div>{t('underConstruction.title')}</div>
 				<DescriptionContents>
-					요청하신 기능을 열심히 만들고 있어요. 곧 만나요!
+					{t('underConstruction.description')}
 				</DescriptionContents>
 			</Description>
-			<Box>
-				- 개발 진행 중입니다. 현재 이 경로는 임시 안내만 표시됩니다.
-			</Box>
+			<Box>{t('underConstruction.note')}</Box>
 		</Wrapper>
 	);
 }

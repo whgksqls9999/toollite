@@ -4,6 +4,7 @@ import { useDragSort } from '../../hooks/useDragSort';
 import { usePreviews } from '../../hooks/usePreviews';
 import { isPdfFile } from '../../lib/mime';
 import { getFileKey } from '../../lib/fileKey';
+import { useTranslation } from 'react-i18next';
 
 interface FilePreviewWidgetProps {
 	files: File[];
@@ -16,6 +17,7 @@ export function FilePreviewWidget({
 	onRemoveFile,
 	onMoveFile,
 }: FilePreviewWidgetProps) {
+	const { t } = useTranslation();
 	// 드래그 정렬
 	const { onDragStart, onDragEnter } = useDragSort(onMoveFile);
 
@@ -28,7 +30,9 @@ export function FilePreviewWidget({
 
 	return (
 		<S.Wrapper>
-			<S.FileSummary>첨부된 파일 ({files.length}개)</S.FileSummary>
+			<S.FileSummary>
+				{t('pdfTools.fileSummary', { count: files.length })}
+			</S.FileSummary>
 			<S.FileList>
 				{files.map((file, idx) => {
 					const key = getFileKey(file);
@@ -50,14 +54,16 @@ export function FilePreviewWidget({
 									/>
 								) : (
 									<S.ThumbPdf>
-										{isPdfFile(file) ? 'PDF' : 'IMG'}
+										{isPdfFile(file)
+											? t('pdfTools.thumbPdf')
+											: t('pdfTools.thumbImg')}
 									</S.ThumbPdf>
 								)}
 							</S.Thumb>
 							<S.FileName>{file.name}</S.FileName>
 							<Button
 								variant='monoOutline'
-								display_value='삭제'
+								display_value={t('common.buttons.delete')}
 								onClick={() => onRemoveFile(idx)}
 							/>
 						</S.FileItem>

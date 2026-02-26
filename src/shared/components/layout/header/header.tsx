@@ -2,6 +2,7 @@ import { LetterIcon } from '../../host';
 import { IconButton } from '../../base';
 import { MenuIcon } from '../../host';
 import * as S from './header.style';
+import { useTranslation } from 'react-i18next';
 
 interface HeaderProps {
 	onToggleSidebar?: () => void;
@@ -12,11 +13,17 @@ export function HeaderComponent({
 	onToggleSidebar,
 	isSidebarOpen,
 }: HeaderProps) {
+	const { t } = useTranslation();
+
 	return (
 		<S.Wrapper>
 			<S.HamburgerButton>
 				<IconButton
-					title={isSidebarOpen ? '사이드바 닫기' : '사이드바 열기'}
+					title={
+						isSidebarOpen
+							? t('layout.header.toggleSidebarClose')
+							: t('layout.header.toggleSidebarOpen')
+					}
 					onClick={onToggleSidebar}
 					icon={<MenuIcon />}
 				/>

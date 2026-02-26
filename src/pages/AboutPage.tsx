@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import styled from '@emotion/styled';
+import { useTranslation } from 'react-i18next';
 import { theme } from '@style';
 
 const Wrapper = styled.article`
@@ -55,60 +56,48 @@ const LinkList = styled.ul`
 `;
 
 export function AboutPage() {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<Helmet>
-				<title>사이트 소개 | Toollite</title>
+				<title>{t('about.pageTitle')}</title>
 				<meta
 					name="description"
-					content="Toollite는 텍스트 정리, 대소문자 변환, JSON 포맷터, PDF 도구 등 개발자와 일반 사용자를 위한 무료 온라인 유틸리티 모음입니다."
+					content={t('about.metaDescription')}
 				/>
 				<meta
 					name="keywords"
-					content="Toollite, 온라인 도구, 텍스트 도구, JSON 포맷터, PDF 합치기, 무료 유틸리티, 개발자 도구"
+					content={t('about.metaKeywords')}
 				/>
 			</Helmet>
 			<Wrapper>
-				<Title>사이트 소개</Title>
+				<Title>{t('about.title')}</Title>
 
 				<Section>
-					<h2>Toollite란?</h2>
-					<p>
-						Toollite(툴라이트)는 개발자, 기획자, 일반 사용자를 위한 무료 온라인 유틸리티 모음 사이트입니다.
-						텍스트 정리, 대소문자 변환, JSON 포맷터, PDF 병합 등 자주 쓰는 작업을 브라우저에서 바로 사용할 수 있도록
-						제공합니다. 설치 없이 빠르고 안전하게 이용할 수 있습니다.
-					</p>
+					<h2>{t('about.whatIsTitle')}</h2>
+					<p>{t('about.whatIsBody')}</p>
 				</Section>
 
 				<Section>
-					<h2>제공 도구</h2>
-					<p>
-						현재 텍스트 정리(공백·줄바꿈 제거), 대소문자 변환, JSON 포맷터/미니파이, PDF 병합 등이 제공됩니다.
-						추가 도구는 지속적으로 확장할 예정입니다. 모든 도구는 클라이언트에서 동작하며, 입력하신 내용을
-						서버로 전송해 저장하지 않습니다.
-					</p>
+					<h2>{t('about.toolsTitle')}</h2>
+					<p>{t('about.toolsBody')}</p>
 				</Section>
 
 				<Section>
-					<h2>이용 대상</h2>
-					<p>
-						코드나 문서를 다루는 개발자, 마케터, 사무직 등 누구나 사용할 수 있습니다. 개인·업무용 무료 이용을
-						원칙으로 하며, 상업적 재배포나 도구의 무단 복제는 금지합니다.
-					</p>
+					<h2>{t('about.targetTitle')}</h2>
+					<p>{t('about.targetBody')}</p>
 				</Section>
 
 				<Section>
-					<h2>문의 및 피드백</h2>
-					<p>
-						오류 제보, 기능 제안, 개인정보 관련 문의는 사이트에 공개된 채널(예: GitHub 이슈, 연락처)을 통해
-						보내 주시면 됩니다. 개인정보처리방침은 별도 페이지에서 확인하실 수 있습니다.
-					</p>
+					<h2>{t('about.contactTitle')}</h2>
+					<p>{t('about.contactBody')}</p>
 					<LinkList>
 						<li>
-							<Link to="/privacy">개인정보처리방침</Link>
+							<Link to="/privacy">{t('about.linkPrivacy')}</Link>
 						</li>
 						<li>
-							<Link to="/">홈으로 돌아가기</Link>
+							<Link to="/">{t('about.linkHome')}</Link>
 						</li>
 					</LinkList>
 				</Section>

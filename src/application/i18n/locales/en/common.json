@@ -1,0 +1,163 @@
+{
+	"app": {
+		"name": "Toollite",
+		"title": "Toollite - Free Online Tools",
+		"description": "A collection of free online tools such as text cleaner, case converter, JSON formatter, and PDF merge. Use them directly in your browser without installation.",
+		"keywords": "online tools, text tools, developer tools, free tools, text cleaner, case converter, URL encoding, whitespace remover"
+	},
+	"main": {
+		"heroTitle": "Welcome to Toollite",
+		"heroDescription": "Use various utility tools to make your work more efficient.",
+		"textToolsTitle": "Text Tools",
+		"textToolsDescription": "Text cleaner, case converter, URL encoding, and other text utilities",
+		"fileToolsTitle": "File Tools",
+		"fileToolsDescription": "Tools for converting and processing PDF, Excel, images, and more",
+		"miscToolsTitle": "Other Tools",
+		"miscToolsDescription": "Color tools, calculators, date utilities, and more"
+	},
+	"about": {
+		"pageTitle": "About | Toollite",
+		"metaDescription": "Toollite is a free online utility collection for developers and general users, including text tools, case converters, JSON formatters, and PDF tools.",
+		"metaKeywords": "Toollite, online tools, text tools, JSON formatter, PDF merge, free utilities, developer tools",
+		"title": "About This Site",
+		"whatIsTitle": "What is Toollite?",
+		"whatIsBody": "Toollite is a free online utility collection for developers, planners, and general users. It provides frequently used tools such as text cleaner, case converter, JSON formatter, and PDF merge directly in your browser. Use it quickly and safely without installation.",
+		"toolsTitle": "Available Tools",
+		"toolsBody": "Currently we provide text cleaner (remove spaces and line breaks), case converter, JSON formatter/minifier, and PDF merge. More tools will be added continuously. All tools run on the client side and your input is never sent to or stored on a server.",
+		"targetTitle": "Who is it for?",
+		"targetBody": "Anyone who works with code or documents such as developers, marketers, and office workers. Personal and business use is free, but commercial redistribution or unauthorized copying of the tools is prohibited.",
+		"contactTitle": "Contact & Feedback",
+		"contactBody": "For bug reports, feature requests, or privacy-related questions, please use the public channels shown on the site (e.g. GitHub issues, contact info). The privacy policy is available on a separate page.",
+		"linkPrivacy": "Privacy Policy",
+		"linkHome": "Back to Home"
+	},
+	"layout": {
+		"sidebar": {
+			"textTools": "Text Tools",
+			"textClean": "Text Cleaner",
+			"textCase": "Case Converter",
+			"textJsonFormatter": "JSON Formatter",
+			"fileTools": "File Tools",
+			"filePdfTools": "PDF Tools"
+		},
+		"footer": {
+			"privacy": "Privacy Policy",
+			"about": "About",
+			"copyright": "© {{year}} Toollite. Free online tools."
+		},
+		"header": {
+			"toggleSidebarOpen": "Open sidebar",
+			"toggleSidebarClose": "Close sidebar"
+		}
+	},
+	"removeWhitespace": {
+		"pageTitle": "Text Cleaner - Remove spaces and line breaks | Toollite",
+		"metaDescription": "A free online tool to clean up spaces, tabs, and line breaks in your text. Collapse repeated spaces into one or remove all whitespace.",
+		"metaKeywords": "text cleaner, remove spaces, remove line breaks, remove tabs, text cleanup tool, free tool",
+		"title": "Text Cleaner",
+		"description": "Clean up spaces and line breaks in your text.",
+		"optionRemoveAll": "Remove all whitespace",
+		"optionCollapseSpaces": "Collapse spaces into one",
+		"optionReplace": "Replace text",
+		"inputPlaceholder": "Enter text to transform"
+	},
+	"caseConvert": {
+		"pageTitle": "Case Converter - Free online text converter | Toollite",
+		"metaDescription": "Easily convert text to uppercase, lowercase, camelCase, snake_case, kebab-case and more with this free online tool.",
+		"metaKeywords": "case converter, text converter, camelCase, snake_case, kebab-case, PascalCase, free tool",
+		"title": "Case Converter",
+		"description": "Convert text into various casing styles.",
+		"inputLabel": "Input text",
+		"modes": {
+			"lower": "lowercase",
+			"upper": "UPPERCASE",
+			"title": "Title Case",
+			"camel": "camelCase",
+			"pascal": "PascalCase",
+			"snake": "snake_case",
+			"kebab": "kebab-case"
+		},
+		"resultPlaceholder": "Result will be displayed here",
+		"copyTitle": "Copy"
+	},
+	"jsonFormatter": {
+		"pageTitle": "JSON Formatter - Auto format & minify | Toollite",
+		"metaDescription": "A free online JSON formatter that automatically formats or minifies JSON strings and wraps plain text as JSON strings.",
+		"metaKeywords": "JSON formatter, JSON format, JSON minify, JSON string, JSON tool, online JSON formatter",
+		"title": "JSON Formatter",
+		"description": "Format JSON strings or wrap plain text as JSON.",
+		"modeLabel": "Mode",
+		"modeParse": "JSON.parse (string → value)",
+		"modeParseSortCheckbox": "Sort keys alphabetically",
+		"modeStringify": "JSON.stringify (value/text → JSON string)",
+		"inputPlaceholder": "Enter a JSON string or plain text, e.g. {\"name\":\"Toollite\",\"version\":1}.",
+		"outputPlaceholder": "Formatted JSON result will appear here.",
+		"errors": {
+			"invalidJson": "Invalid JSON format.\n({{message}})",
+			"unknown": "An unknown error occurred."
+		}
+	},
+	"pdfTools": {
+		"pageTitle": "PDF Merge Tool | Toollite",
+		"metaDescription": "Safely merge multiple PDF or image files into a single PDF in your browser.",
+		"title": "PDF Merge",
+		"description": "Merge multiple PDFs or images (PNG/JPG) into a single PDF.",
+		"dropMessage": "Drag and drop PDF files here, or click to select.",
+		"selectFilesButton": "Select files",
+		"buttonMerge": "Merge PDF",
+		"buttonMerging": "Merging...",
+		"fileSummary": "Attached files ({{count}})",
+		"delete": "Delete",
+		"thumbPdf": "PDF",
+		"thumbImg": "IMG"
+	},
+	"underConstruction": {
+		"title": "This page is under construction",
+		"description": "We are working hard on this feature. Coming soon!",
+		"note": "- Development is in progress. This route currently shows a temporary notice."
+	},
+	"privacy": {
+		"pageTitle": "Privacy Policy | Toollite",
+		"metaDescription": "Toollite privacy policy. Information on collected data, usage purposes, third-party sharing, cookies, and access logs.",
+		"title": "Privacy Policy",
+		"lastUpdated": "Last updated: February 2025",
+		"section1Title": "1. Overview",
+		"section1Body": "Toollite (\"site\") values your personal information and complies with applicable privacy laws such as the Personal Information Protection Act. This policy explains what information we collect on the site, how we use it, how it is stored and deleted, and your rights as a user.",
+		"section2Title": "2. Information we collect",
+		"section2Intro": "To provide and improve our services, we may collect the following types of information:",
+		"section2Item1": "Access logs: IP address, browser type, access time, referrer URL",
+		"section2Item2": "Usage environment: device type, screen resolution (aggregated anonymously via analytics tools)",
+		"section2Item3": "Text and files you input when using the tools: not stored on the server and processed only within the session.",
+		"section3Title": "3. Purposes of use",
+		"section3Item1": "Providing the service, fixing errors, and ensuring stability",
+		"section3Item2": "Analyzing access statistics and usage patterns (anonymized and aggregated)",
+		"section3Item3": "Improving the service and planning new features",
+		"section4Title": "4. Third-party services",
+		"section4Body": "The site may use the following third-party services for analytics and advertising. How each service collects and uses data is governed by that provider's own privacy policy.",
+		"section4Item1": "Google Analytics: traffic analytics",
+		"section4Item2": "Google AdSense: ad delivery (if enabled)",
+		"section4Item3": "Microsoft Clarity: behavior analytics (anonymous)",
+		"section4Item4": "Vercel: hosting and analytics",
+		"section5Title": "5. Cookies",
+		"section5Body": "Cookies are used to improve convenience and analyze service usage. You can restrict the use of cookies in your browser settings, but some features may not work properly if cookies are disabled.",
+		"section6Title": "6. Retention and deletion",
+		"section6Body": "Access logs and similar data are retained for the period required by law or for service operation and are then deleted. Text and files you input when using the tools are not stored on the server and are not retained after you leave the page.",
+		"section7Title": "7. User rights",
+		"section7Body": "You may request inquiries, access, correction, or deletion regarding your personal information. For such requests, please use the contact information provided on the About page.",
+		"section8Title": "8. Changes to this policy",
+		"section8Body": "If this privacy policy changes, we will post a notice on the site, and in case of significant changes we will indicate the updated date."
+	},
+	"common": {
+		"buttons": {
+			"reset": "Reset",
+			"copy": "Copy",
+			"delete": "Delete"
+		},
+		"toast": {
+			"copySuccess": "Copied to clipboard!",
+			"copyError": "Failed to copy.",
+			"jsonCopySuccess": "Result copied to clipboard."
+		}
+	}
+}
+

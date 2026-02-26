@@ -1,14 +1,17 @@
 import { PdfMergeWidget } from '@features/pdf-tools';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 export function PdfToolsPage() {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<Helmet>
-				<title>PDF 병합 도구 | Toollite</title>
+				<title>{t('pdfTools.pageTitle')}</title>
 				<meta
 					name='description'
-					content='여러 PDF 또는 이미지 파일을 하나의 PDF로 브라우저에서 안전하게 병합하세요.'
+					content={t('pdfTools.metaDescription')}
 				/>
 			</Helmet>
 			<PdfMergeWidget />
