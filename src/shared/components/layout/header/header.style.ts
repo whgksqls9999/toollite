@@ -49,3 +49,29 @@ export const HamburgerButton = styled.div`
 		display: block;
 	}
 `;
+
+export const LanguageSelector = styled.div`
+	margin-left: auto;
+	font-size: 0.875rem;
+
+	select {
+		padding: 0.25rem 0.5rem;
+		border-radius: 4px;
+		border: 1px solid #d0d0d0;
+		background-color: #ffffff;
+		font-size: inherit;
+		cursor: pointer;
+
+		&:hover {
+			border-color: #b0b0b0;
+		}
+	}
+
+	${theme.media.down.mobile} {
+		position: absolute;
+		right: 0.75rem;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 0.75rem;
+	}
+`;

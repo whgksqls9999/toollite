@@ -3,6 +3,7 @@ import { IconButton } from '../../base';
 import { MenuIcon } from '../../host';
 import * as S from './header.style';
 import { useTranslation } from 'react-i18next';
+import { ChangeEvent, useCallback } from 'react';
 
 interface HeaderProps {
 	onToggleSidebar?: () => void;
@@ -13,7 +14,18 @@ export function HeaderComponent({
 	onToggleSidebar,
 	isSidebarOpen,
 }: HeaderProps) {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
+
+	const handleChangeLanguage = useCallback(
+		(event: ChangeEvent<HTMLSelectElement>) => {
+			const value = event.target.value as 'ko' | 'en';
+			i18n.changeLanguage(value);
+		},
+		[i18n],
+	);
+
+	const currentLanguage =
+		(i18n.language || '').startsWith('ko') ? 'ko' : 'en';
 
 	return (
 		<S.Wrapper>
@@ -37,6 +49,20 @@ export function HeaderComponent({
 					<span>Toollite</span>
 				</S.TitleContainer>
 			</S.TitleLink>
+			<S.LanguageSelector>
+				<select
+					aria-label={
+						t('layout.header.languageSelect', {
+							defaultValue: '언어 선택',
+						}) as string
+					}
+					value={currentLanguage}
+					onChange={handleChangeLanguage}
+				>
+					<option value='ko'>한국어</option>
+					<option value='en'>English</option>
+				</select>
+			</S.LanguageSelector>
 		</S.Wrapper>
 	);
 }
