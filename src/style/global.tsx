@@ -40,13 +40,11 @@ export const GlobalStyles = () => (
 			}
 
 			body {
-				display: flex;
-				align-items: center;
-				justify-content: center;
 				min-height: 100vh;
 				width: 100%;
-				overflow-y: auto;
-				/* Reserve space for scrollbar when present to avoid layout shift (Chrome/Edge) */
+				/* 항상 스크롤바 영역을 확보해서 레이아웃 시프트를 방지 */
+				overflow-y: scroll;
+				/* 지원 브라우저에서 스크롤바 공간을 안정적으로 유지 */
 				scrollbar-gutter: stable both-edges;
 			}
 
