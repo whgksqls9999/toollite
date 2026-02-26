@@ -3,6 +3,7 @@ export const theme = {
 	colors: {
 		white: '#FFFFFF',
 		black: '#000000',
+		gray50: '#F9FAFB',
 		gray100: '#F7F8FA',
 		gray200: '#E5E7EB',
 		gray300: '#D1D5DB',
@@ -22,6 +23,7 @@ export const theme = {
 		md: '10px',
 		lg: '12px',
 		xl: '16px',
+		round: '9999px',
 	},
 	spacing: (factor: number) => `${factor * 4}px`,
 	// 3-tier responsive breakpoints: mobile, tablet, desktop
@@ -45,6 +47,7 @@ export const theme = {
 		},
 	},
 	fontSize: {
+		xs: '12px',
 		sm: '14px',
 		base: '16px',
 		lg: '18px',
@@ -62,6 +65,7 @@ declare module '@emotion/react' {
 		colors: {
 			white: string;
 			black: string;
+			gray50: string;
 			gray100: string;
 			gray200: string;
 			gray300: string;
@@ -81,6 +85,7 @@ declare module '@emotion/react' {
 			md: string;
 			lg: string;
 			xl: string;
+			round: string;
 		};
 		spacing: (factor: number) => string;
 		breakpoints: {
@@ -102,6 +107,7 @@ declare module '@emotion/react' {
 			};
 		};
 		fontSize: {
+			xs: string;
 			sm: string;
 			base: string;
 			lg: string;

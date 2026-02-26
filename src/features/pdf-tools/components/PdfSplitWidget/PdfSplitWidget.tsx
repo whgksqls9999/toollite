@@ -26,7 +26,6 @@ export function PdfSplitWidget() {
 	const [chunkSize, setChunkSize] = useState(10);
 	const [error, setError] = useState<string | null>(null);
 	const [isSplitting, setIsSplitting] = useState(false);
-	const [results, setResults] = useState<SplitResultPreview[]>([]);
 	const [isOver, setIsOver] = useState(false);
 
 	const applyFile = async (next: File) => {
@@ -168,7 +167,6 @@ export function PdfSplitWidget() {
 				}
 				await splitPdfByChunkSize(file, chunkSize, pageCount);
 			}
-			setResults(previewRanges);
 		} catch (e) {
 			console.error(e);
 			setError(t('pdfTools.split.errors.generic'));
